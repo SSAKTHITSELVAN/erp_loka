@@ -59,13 +59,13 @@ export default function Timeline() {
 
                 {/* Content */}
                 <div className="flex-1 md:w-1/2">
-                  <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
-                    <h3 className="text-2xl font-bold mb-4">{milestone.title}</h3>
+                  <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/30 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl group">
+                    <h3 className="text-2xl font-bold mb-4 tracking-tight group-hover:text-purple-200 transition-colors">{milestone.title}</h3>
                     <ul className="space-y-3">
                       {milestone.achievements.map((achievement, idx) => (
-                        <li key={idx} className="flex items-start gap-3 text-white/90">
+                        <li key={idx} className="flex items-start gap-3 text-white/90 hover:text-white transition-colors">
                           <CheckCircle size={18} className="flex-shrink-0 mt-1 text-purple-200" />
-                          <span>{achievement}</span>
+                          <span className="leading-relaxed">{achievement}</span>
                         </li>
                       ))}
                     </ul>

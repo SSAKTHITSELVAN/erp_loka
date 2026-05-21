@@ -1,109 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap');
+/* =================================================================
+   ERP LOKA — Valliam Layout with Dark Theme Colors
+   ================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Cinzel:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 
+/* Design Tokens */
 @theme {
-  /* Colors */
-  --color-primary: #1e40af;
-  --color-primary-light: #3b82f6;
-  --color-primary-dark: #1e3a8a;
-  --color-secondary: #8b5cf6;
-  --color-secondary-light: #a78bfa;
-  --color-secondary-dark: #7c3aed;
-  --color-accent: #f97316;
-  --color-accent-light: #fb923c;
 
-  /* Fonts */
-  --font-family-sans: 'Inter', system-ui, sans-serif;
-  --font-family-heading: 'Poppins', 'Inter', sans-serif;
+  /* Enterprise Core */
+  --color-primary: #0A1F44;
+  --color-primary-light: #0057D9;
+  --color-primary-bright: #2F80ED;
 
-  /* Animation */
-  --animate-float: float 3s ease-in-out infinite;
+  /* Backgrounds */
+  --color-bg: #F8FAFC;
+  --color-bg-dark: #071226;
+  --color-surface: #FFFFFF;
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+  /* Text */
+  --color-text: #111827;
+  --color-text-muted: #6B7280;
+
+  /* Borders */
+  --color-border: #D1D5DB;
+
+  /* Success */
+  --color-success: #0F9D58;
+
+  /* Typography */
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-brand: "Cormorant Garamond", serif;
+
+  /* Radius */
+  --radius-card: 24px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #020617;
+    color: #f1f5f9;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: #f1f5f9;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 { font-size: 4rem; font-weight: 700; }
+  h2 { font-size: 2.75rem; font-weight: 700; }
+  h3 { font-size: 1.75rem; font-weight: 600; }
+  h4 { font-size: 1.25rem; font-weight: 600; }
+
+  p {
+    font-family: var(--font-body);
+    line-height: 1.7;
+  }
+
+  a {
+    color: #0ea5e9;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    color: #38bdf8;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: white;
-  color: #111827;
-  font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', 'Inter', sans-serif;
-  font-weight: 700;
-}
-
-/* Custom scrollbar */
+/* Scrollbar - Dark Theme */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f3f4f6;
+  background-color: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
-  border-radius: 6px;
+  background: linear-gradient(180deg, #0ea5e9, #0284c7);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-primary-dark);
+  background: linear-gradient(180deg, #38bdf8, #0ea5e9);
 }
 
-/* Gradient text */
+/* Selection - Electric Blue */
+::selection {
+  background-color: #0ea5e9;
+  color: #020617;
+}
+
+::-moz-selection {
+  background-color: #0ea5e9;
+  color: #020617;
+}
+
+/* Container - Max Width 1440px (Valliam Layout) */
+.container-custom {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section Spacing - Valliam Style */
+.section {
+  padding: 6rem 1.5rem;
+  background-color: #020617;
+}
+
+.section-alt {
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+}
+
+/* Gradient Text - Electric Blue */
 .gradient-text {
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-primary));
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4, #38bdf8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
-/* Section */
-.section {
-  padding: 5rem 1.5rem;
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-.container-custom {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Bento Card - Dark Theme */
+.bento-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Card */
-.card {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+.bento-card:hover {
+  border-color: rgba(14, 165, 233, 0.6);
   transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(14, 165, 233, 0.15);
 }
 
-/* Reduced motion */
+/* Glow Effects */
+.glow-electric { box-shadow: 0 0 30px rgba(14, 165, 233, 0.4); }
+.glow-orange { box-shadow: 0 0 30px rgba(249, 115, 22, 0.4); }
+
+/* Logo Text Styles - Cinzel Font with Blue Gradient */
+.logo-main-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 6px;
+  background: linear-gradient(90deg, #001b7a 0%, #0027a8 35%, #001b7a 70%, #0047ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.logo-sub-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #0047ff 0%, #002fb8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
