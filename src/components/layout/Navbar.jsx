@@ -30,7 +30,7 @@ export default function Navbar() {
             <img
               src="/logo_final_v.png"
               alt="ERP LOKA Logo"
-              className="h-16 w-auto object-contain"
+              className="h-22 w-auto object-contain"
             />
             <div className="flex flex-col justify-center leading-none -ml-4">
               <span className="text-3xl logo-main-title">
