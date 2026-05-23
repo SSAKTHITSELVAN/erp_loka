@@ -150,16 +150,16 @@ export default function BookDemoModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl animate-slideUp">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">
+      <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-[2rem] shadow-2xl animate-slideUp">
 
-        {/* Close Button */}
+        {/* Close Button - Professional and visible */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors z-10"
-          aria-label="Close modal"
+          className="sticky top-5 right-5 float-right w-10 h-10 flex items-center justify-center rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-all duration-300 shadow-lg z-50 group mb-[-40px]"
+          aria-label="Close"
         >
-          <X size={24} className="text-slate-900" />
+          <X size={20} className="group-hover:rotate-90 transition-transform duration-300" strokeWidth={2.5} />
         </button>
 
         {isSubmitted ? (

@@ -5,15 +5,53 @@ export const companyData = {
 
   about: {
     title: 'About ERP LOKA',
-    description: `At ERPLOKA IT consulting, we are dedicated to delivering reliable and efficient SAP support and Application Management Services (AMS) that help businesses optimize their operations and achieve long-term success. With a team of experienced SAP professionals, we provide comprehensive support solutions tailored to meet the unique requirements of organizations across various industries.
-
-Our expertise covers multiple SAP modules, enabling us to support critical business functions such as procurement, inventory management, finance, sales, production, and human resources. We focus on ensuring smooth system performance, minimizing downtime, and improving operational efficiency through proactive monitoring, issue resolution, and continuous system enhancements.
-
-We offer a wide range of services including SAP support, incident management, ticket handling, system maintenance, user assistance, configuration changes, performance optimization, and enhancement implementation. Our team works closely with clients to understand their business processes and deliver practical, scalable, and cost-effective SAP solutions.
-
-Customer satisfaction, service quality, and quick response time are at the core of our approach. We believe in building strong long-term partnerships by providing dependable support and continuous improvement services that help businesses maximize the value of their SAP investment.
-
-Our mission is to empower organizations with seamless SAP operations, innovative solutions, and trusted support that drive productivity, efficiency, and business growth.`,
+    slides: [
+      {
+        title: 'Who We Are',
+        points: [
+          'Dedicated to delivering reliable and efficient SAP support and Application Management Services (AMS)',
+          'Team of experienced SAP professionals',
+          'Comprehensive support solutions tailored to unique requirements',
+          'Serving organizations across various industries'
+        ]
+      },
+      {
+        title: 'Our Expertise',
+        points: [
+          'Multiple SAP modules: Procurement, Inventory, Finance, Sales, Production, HR',
+          'Smooth system performance and minimized downtime',
+          'Operational efficiency through proactive monitoring',
+          'Continuous system enhancements and issue resolution'
+        ]
+      },
+      {
+        title: 'Services We Offer',
+        points: [
+          'SAP support & incident management',
+          'System maintenance & user assistance',
+          'Configuration changes & performance optimization',
+          'Enhancement implementation & scalable solutions'
+        ]
+      },
+      {
+        title: 'Our Approach',
+        points: [
+          'Customer satisfaction at the core',
+          'Service quality and quick response time',
+          'Strong long-term partnerships',
+          'Maximize value of SAP investment'
+        ]
+      },
+      {
+        title: 'Our Mission',
+        points: [
+          'Empower organizations with seamless SAP operations',
+          'Innovative solutions that drive productivity',
+          'Trusted support for business efficiency',
+          'Enable business growth and success'
+        ]
+      }
+    ]
   },
 
   whyChooseUs: [

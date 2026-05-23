@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import FloatingActions from './components/common/FloatingActions';
 import Home from './pages/Home';
 import Career from './pages/Career';
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/career" element={<Career />} />
         </Routes>
         <Footer />
+        <FloatingActions />
       </div>
     </Router>
   );

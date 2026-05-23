@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 import { navLinks } from '../../data/content';
-import BookDemoModal from '../common/BookDemoModal';
+import BookDemoChoice from '../common/BookDemoChoice';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -167,11 +167,11 @@ export default function Navbar() {
               alt="ERP LOKA Logo"
               className="h-17 w-auto object-contain transition-transform duration-300 group-hover:rotate-3"
             />
-            <div className="flex flex-col justify-center leading-none -ml-2">
+            <div className="flex flex-col justify-center leading-none -ml-5">
               <span className="text-xl logo-main-title text-left transition-all duration-300 group-hover:text-[#0ea5e9] group-hover:tracking-wider">
                 ERP LOKA
               </span>
-              <p className="text-[10px] logo-sub-title mt-0.5 text-left transition-all duration-300 group-hover:text-[#f97316] group-hover:translate-x-1 pl-11.5">
+              <p className="text-[10px] logo-sub-title mt-0.5 text-left transition-all duration-300 group-hover:text-[#f97316] group-hover:translate-x-1 pl-10">
                 IT Consulting
               </p>
             </div>
@@ -233,8 +233,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Book Demo Modal */}
-      <BookDemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
+      {/* Book Demo Choice Modal */}
+      <BookDemoChoice isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </nav>
   );
 }

@@ -553,3 +553,76 @@
     width: 100%;
   }
 }
+
+/* =================================================================
+   Horizontal Scroll Cards - About Section
+   ================================================================= */
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Card Styling */
+.scroll-card {
+  width: clamp(280px, 85vw, 420px);
+  min-width: clamp(280px, 85vw, 420px);
+  height: auto;
+  min-height: 480px;
+  flex-shrink: 0;
+}
+
+/* Desktop: Larger cards */
+@media (min-width: 768px) {
+  .scroll-card {
+    width: clamp(380px, 45vw, 480px);
+    min-width: clamp(380px, 45vw, 480px);
+    min-height: 520px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-card {
+    width: 450px;
+    min-width: 450px;
+    min-height: 540px;
+  }
+}
+
+/* Smooth scroll behavior */
+@media (prefers-reduced-motion: no-preference) {
+  .overflow-x-auto {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Card hover effects */
+.scroll-card:hover {
+  z-index: 10;
+}
+
+/* Electric color variable for consistency */
+:root {
+  --color-electric: #0ea5e9;
+  --color-neon-blue: #06b6d4;
+}
+
+/* Progress bar animation for About section */
+.animate-progress {
+  width: 0%;
+  animation: fillProgress 5s linear forwards;
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

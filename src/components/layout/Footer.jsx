@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
-import { FaLinkedin, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaYoutube, FaWhatsapp, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,27 +16,42 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-full border-4 border-white flex items-center justify-center bg-white/10 backdrop-blur-sm">
-                <CheckCircle className="w-6 h-6 text-white" strokeWidth={3} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold">ERP LOKA</h3>
-                <p className="text-sm text-white/80">IT consulting</p>
+            <div className="flex items-center mb-6 group bg-white rounded-2xl py-2 pl-1 pr-4 w-fit">
+              <img
+                src="/logo_final_v.png"
+                alt="ERP LOKA Logo"
+                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3"
+              />
+              <div className="flex flex-col justify-center leading-none -ml-4">
+                <span className="text-lg logo-main-title text-left transition-all duration-300 group-hover:text-[#0ea5e9] group-hover:tracking-wider whitespace-nowrap">
+                  ERP LOKA
+                </span>
+                <p className="text-[10px] logo-sub-title mt-0.5 text-left transition-all duration-300 group-hover:text-[#f97316] group-hover:translate-x-1 pl-8">
+                  IT Consulting
+                </p>
               </div>
             </div>
             <p className="text-white/90 mb-6 leading-relaxed">
               Delivering reliable and efficient SAP support and Application Management Services
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg">
+            <div className="flex flex-wrap gap-3">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="LinkedIn">
                 <FaLinkedin size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Facebook">
                 <FaFacebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg">
-                <FaTwitter size={20} />
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="X (Twitter)">
+                <FaXTwitter size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="YouTube">
+                <FaYoutube size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="WhatsApp">
+                <FaWhatsapp size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Instagram">
+                <FaInstagram size={20} />
               </a>
             </div>
           </div>
@@ -91,7 +106,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8">
+        <div className="border-t border-white/20 pt-8 pb-20 md:pb-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/80 text-sm">
               © {currentYear} ERP LOKA. All rights reserved.
