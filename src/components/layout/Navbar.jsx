@@ -22,46 +22,46 @@ export default function Navbar() {
       }}></div>
 
       {/* Main Container - Reduced Width */}
-      <div className="max-w-[1320px] mx-auto px-8 py-2">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-[1320px] mx-auto px-8 py-1.5">
+        <div className="flex justify-between items-center h-14">
 
           {/* Logo Section with Actual Logo Image */}
           <a href="#home" className="flex items-center cursor-pointer group flex-shrink-0">
             <img
               src="/logo_final_v.png"
               alt="ERP LOKA Logo"
-              className="h-22 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
-            <div className="flex flex-col justify-center leading-none -ml-4">
-              <span className="text-3xl logo-main-title">
+            <div className="flex flex-col justify-center leading-none -ml-3">
+              <span className="text-2xl logo-main-title">
                 ERP LOKA
               </span>
-              <p className="text-sm logo-sub-title mt-1">
+              <p className="text-xs logo-sub-title mt-0.5">
                 IT Consulting
               </p>
             </div>
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden xl:flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-6">
             {navLinks.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="px-2 py-2 text-[18px] font-semibold transition-all duration-300 rounded relative group text-slate-900 hover:text-electric"
+                className="px-2 py-1.5 text-[16px] font-semibold transition-all duration-300 rounded relative group text-slate-900 hover:text-electric"
                 style={{
                   fontFamily: 'IBM Plex Sans, sans-serif'
                 }}
               >
                 {item.name}
-                <span className="absolute bottom-4 left-3 right-3 h-0.5 bg-electric scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                <span className="absolute bottom-2 left-2 right-2 h-0.5 bg-electric scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </a>
             ))}
 
             {/* Contact Us CTA Button - Red */}
             <a
               href="#contact"
-              className="flex items-center gap-2 px-6 py-3 ml-4 text-[18px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_30px_rgba(220,38,38,0.4)] hover:shadow-[0_0_50px_rgba(220,38,38,0.6)] relative overflow-hidden group"
+              className="flex items-center gap-2 px-5 py-2 ml-3 text-[16px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_35px_rgba(220,38,38,0.6)] relative overflow-hidden group"
               style={{
                 background: '#E60000',
                 fontFamily: 'Rajdhani, sans-serif',
@@ -70,7 +70,7 @@ export default function Navbar() {
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-red-600 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative flex items-center gap-2">
-                <MessageSquare size={20} />
+                <MessageSquare size={18} />
                 Contact Us
               </span>
             </a>
@@ -94,18 +94,18 @@ export default function Navbar() {
         }`}
       >
         {/* Logo and Close Button Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+        <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200">
           <a href="#home" className="flex items-center cursor-pointer" onClick={() => setIsOpen(false)}>
             <img
               src="/logo_final_v.png"
               alt="ERP LOKA Logo"
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
-            <div className="flex flex-col justify-center leading-none -ml-3">
-              <span className="text-2xl logo-main-title">
+            <div className="flex flex-col justify-center leading-none -ml-2">
+              <span className="text-xl logo-main-title">
                 ERP LOKA
               </span>
-              <p className="text-xs logo-sub-title mt-1">
+              <p className="text-[10px] logo-sub-title mt-0.5">
                 IT Consulting
               </p>
             </div>

@@ -21,10 +21,10 @@ export default function VisionMission() {
           <span className="text-sm font-bold tracking-widest text-electric uppercase font-heading">
             WHO WE ARE
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-150 mt-3 font-heading tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-150 mt-3 font-heading tracking-tighter">
             Vision &amp; <span className="gradient-text">Mission</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mt-6 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mt-4 rounded-full" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

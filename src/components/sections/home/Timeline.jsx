@@ -25,11 +25,11 @@ export default function Timeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Our <span className="text-purple-200">Journey</span>
           </h2>
-          <div className="w-24 h-1 bg-white mx-auto mb-8"></div>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-lg text-white/90 max-w-3xl mx-auto">
             Building excellence since 2020
           </p>
         </motion.div>

@@ -35,7 +35,7 @@ export default function CTA() {
             <Sparkles size={14} className="text-electric" />
             <span className="text-xs font-bold text-electric font-heading tracking-widest uppercase">Get Started</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-150 font-heading tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-150 font-heading tracking-tighter">
             Ready to Transform Your <span className="gradient-text">Business?</span>
           </h2>
         </div>

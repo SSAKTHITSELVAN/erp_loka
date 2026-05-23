@@ -23,10 +23,10 @@ export default function About() {
           <span className="text-sm font-bold tracking-widest text-electric uppercase font-heading">
             WHO WE ARE
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-150 mt-3 font-heading tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-150 mt-3 font-heading tracking-tighter">
             About <span className="gradient-text">ERP LOKA</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mt-6 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mt-4 rounded-full" />
         </motion.div>
 
         {/* Two-col intro */}
@@ -92,7 +92,7 @@ export default function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="text-3xl font-bold text-center mb-12 font-heading tracking-tight text-gray-150">
+          <h3 className="text-2xl font-bold text-center mb-10 font-heading tracking-tight text-gray-150">
             Why Choose <span className="gradient-text">ERP LOKA</span>
           </h3>
 

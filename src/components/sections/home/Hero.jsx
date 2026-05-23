@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="lg:col-span-9 space-y-8 md:space-y-10">
             <div className="space-y-4 md:space-y-6">
               <h1
-                className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1]"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]"
                 style={{
                   color: '#f1f5f9',
                   fontFamily: 'Rajdhani, sans-serif',
@@ -41,7 +41,7 @@ export default function Hero() {
               </h1>
 
               <p
-                className="text-xl md:text-2xl leading-relaxed max-w-3xl border-l-4 pl-6 text-slate-300"
+                className="text-lg md:text-xl leading-relaxed max-w-3xl border-l-4 pl-6 text-slate-300"
                 style={{
                   fontFamily: 'IBM Plex Sans, sans-serif',
                   borderColor: '#0ea5e9'
@@ -52,10 +52,10 @@ export default function Hero() {
             </div>
 
             {/* Hero Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 pt-4 md:pt-8">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 md:pt-6">
               <a
                 href="#contact"
-                className="px-8 py-5 text-lg font-bold flex items-center justify-center space-x-3 transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] group hover:-translate-y-1"
+                className="px-6 py-3 text-base font-bold flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:shadow-[0_0_40px_rgba(249,115,22,0.6)] group hover:-translate-y-1"
                 style={{
                   backgroundColor: '#f97316',
                   color: '#FFFFFF',
@@ -64,13 +64,13 @@ export default function Hero() {
                   borderRadius: '2px'
                 }}
               >
-                <MessageSquare size={24} />
+                <MessageSquare size={20} />
                 <span>SCHEDULE CONSULTATION</span>
               </a>
 
               <a
                 href="mailto:info@erploka.com"
-                className="px-8 py-5 text-lg font-bold flex items-center justify-center space-x-3 transition-all duration-300 hover:bg-gray-150 hover:text-slate-950 group hover:-translate-y-1"
+                className="px-6 py-3 text-base font-bold flex items-center justify-center space-x-2 transition-all duration-300 hover:bg-gray-150 hover:text-slate-950 group hover:-translate-y-1"
                 style={{
                   border: '2px solid #f1f5f9',
                   color: '#f1f5f9',
@@ -79,7 +79,7 @@ export default function Hero() {
                   borderRadius: '2px'
                 }}
               >
-                <Mail size={24} />
+                <Mail size={20} />
                 <span>EMAIL US</span>
               </a>
             </div>

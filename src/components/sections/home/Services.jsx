@@ -30,11 +30,11 @@ export default function Services() {
           <div className="inline-block mb-4">
             <span className="text-sm font-bold tracking-widest text-electric uppercase">WHAT WE OFFER</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-extrabold mb-6 text-gray-150 font-heading tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-gray-150 font-heading tracking-tighter">
             Our <span className="gradient-text">Services</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mb-8 rounded-full"></div>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-20 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Comprehensive SAP solutions tailored to your business needs
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export default function Services() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-2xl md:text-3xl font-extrabold mb-4 text-gray-150 font-heading tracking-tight group-hover:text-electric transition-colors">
+                  <h3 className="text-xl md:text-2xl font-extrabold mb-4 text-gray-150 font-heading tracking-tight group-hover:text-electric transition-colors">
                     {service.title}
                   </h3>
 
