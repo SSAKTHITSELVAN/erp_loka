@@ -152,11 +152,53 @@ Our mission is to empower organizations with seamless SAP operations, innovative
   ],
 };
 
+export const careerData = {
+  title: 'Join Our Team',
+  subtitle: 'Build Your Career with ERP LOKA',
+  description: 'We are always looking for talented individuals who are passionate about SAP technologies and want to make an impact in the IT consulting industry.',
+
+  workEnvironment: {
+    title: 'Our Work Environment',
+    features: [
+      {
+        title: 'Collaborative Culture',
+        description: 'Work with experienced SAP professionals in a collaborative and supportive environment where knowledge sharing is encouraged.',
+      },
+      {
+        title: 'Growth Opportunities',
+        description: 'Continuous learning and professional development through SAP certifications, training programs, and hands-on project experience.',
+      },
+      {
+        title: 'Work-Life Balance',
+        description: 'Flexible working hours and remote work options to help you maintain a healthy work-life balance.',
+      },
+      {
+        title: 'Innovative Projects',
+        description: 'Work on cutting-edge SAP S/4 HANA implementations and digital transformation projects for leading organizations.',
+      },
+    ],
+  },
+
+  benefits: [
+    'Competitive salary and performance bonuses',
+    'Health insurance coverage',
+    'SAP certification sponsorship',
+    'Annual team outings and events',
+    'Modern office infrastructure',
+    'Career advancement opportunities',
+  ],
+
+  currentOpenings: {
+    available: false,
+    message: 'We currently don\'t have any open positions, but we\'re always interested in connecting with talented professionals. Please check back soon or send us your resume at careers@erploka.com',
+  },
+};
+
 export const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Why Us', href: '#why-us' },
   { name: 'Timeline', href: '#timeline' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Career', href: '/career' },
 ];

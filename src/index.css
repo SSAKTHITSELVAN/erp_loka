@@ -195,6 +195,47 @@
   background-clip: text;
 }
 
+/* Modal Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Modal Header Override */
+.modal-header-title {
+  color: #FFFFFF !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.modal-header-subtitle {
+  color: #FFFFFF !important;
+  font-size: 16px !important;
+  opacity: 0.95 !important;
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -202,5 +243,313 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* =================================================================
+   Futuristic Hero Ribbon Panels & Effects
+   ================================================================= */
+
+/* Ribbon Panel Base - More Subtle */
+.ribbon-panel {
+  position: relative;
+  display: inline-block;
+  padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 2rem);
+  background: linear-gradient(135deg, rgba(0, 17, 63, 0.6) 0%, rgba(2, 11, 45, 0.7) 100%);
+  border: 1px solid rgba(0, 175, 255, 0.25);
+  border-radius: 0.125rem;
+  backdrop-filter: blur(0.5rem);
+  box-shadow:
+    0 0.125rem 0.75rem rgba(0, 175, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 rgba(0, 175, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.ribbon-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 175, 255, 0.2) 50%, transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.ribbon-panel:hover::before {
+  left: 100%;
+}
+
+.ribbon-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 60%, rgba(0, 175, 255, 0.1) 100%);
+  pointer-events: none;
+}
+
+/* Ribbon Sizes - Compact */
+.ribbon-large {
+  min-width: clamp(15rem, 50vw, 35rem);
+}
+
+.ribbon-small {
+  min-width: clamp(12rem, 40vw, 28rem);
+}
+
+.ribbon-compact {
+  min-width: clamp(10rem, 40vw, 25rem);
+}
+
+/* Metallic Silver Text */
+.metallic-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  background: linear-gradient(135deg, #DDE3EA 0%, #FFFFFF 25%, #B8C5D0 50%, #FFFFFF 75%, #DDE3EA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  text-shadow:
+    0 0 0.5rem rgba(255, 255, 255, 0.3),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 175, 255, 0.2);
+  filter: drop-shadow(0 0 0.25rem rgba(255, 255, 255, 0.2));
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Metallic Silver Text - Subtle Version */
+.metallic-text-subtle {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, #B8C5D0 0%, #DDE3EA 50%, #B8C5D0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4),
+    0 0 0.25rem rgba(0, 175, 255, 0.1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Electric Blue Text */
+.electric-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  background: linear-gradient(135deg, #00AFFF 0%, #00D4FF 50%, #00AFFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  text-shadow:
+    0 0 1rem rgba(0, 175, 255, 0.8),
+    0 0 2rem rgba(0, 175, 255, 0.5),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 0.5rem rgba(0, 175, 255, 0.6));
+  animation: electric-pulse 3s ease-in-out infinite;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Electric Blue Text - Subtle Version */
+.electric-text-subtle {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, #0099E5 0%, #00AFFF 50%, #0099E5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 0.5rem rgba(0, 175, 255, 0.3),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.6);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Neon Cyan Text */
+.neon-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  background: linear-gradient(135deg, #009DFF 0%, #00AFFF 25%, #00D4FF 50%, #00AFFF 75%, #009DFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  text-shadow:
+    0 0 0.75rem rgba(0, 157, 255, 0.9),
+    0 0 1.5rem rgba(0, 175, 255, 0.6),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 0.75rem rgba(0, 175, 255, 0.7));
+  animation: neon-glow 4s ease-in-out infinite;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Neon Cyan Text - Subtle Version */
+.neon-text-subtle {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(135deg, #008ACC 0%, #00AFFF 50%, #008ACC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 0.5rem rgba(0, 175, 255, 0.4),
+    0 0.0625rem 0.125rem rgba(0, 0, 0, 0.6);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Futuristic Buttons */
+.futuristic-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(0.625rem, 1.5vw, 0.875rem) clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05em;
+  border-radius: 0.125rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+/* Futuristic Buttons - Compact Version */
+.futuristic-button-compact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: clamp(0.45rem, 1.25vw, 0.65rem) clamp(1rem, 2.5vw, 1.4rem);
+  font-size: clamp(0.75rem, 1.25vw, 0.875rem);
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05em;
+  border-radius: 0.125rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.futuristic-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.futuristic-button:hover::before {
+  opacity: 1;
+}
+
+.futuristic-button-primary,
+.futuristic-button-compact.futuristic-button-primary {
+  background: linear-gradient(135deg, #0099E5 0%, #008ACC 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(0, 175, 255, 0.3);
+  box-shadow:
+    0 0 0.5rem rgba(0, 175, 255, 0.25),
+    0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.futuristic-button-primary:hover,
+.futuristic-button-compact.futuristic-button-primary:hover {
+  transform: translateY(-0.0625rem);
+  box-shadow:
+    0 0 0.75rem rgba(0, 175, 255, 0.4),
+    0 0.25rem 0.75rem rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.futuristic-button-secondary,
+.futuristic-button-compact.futuristic-button-secondary {
+  background: rgba(2, 11, 45, 0.4);
+  color: #00AFFF;
+  border: 1.5px solid rgba(0, 175, 255, 0.4);
+  box-shadow:
+    0 0 0.5rem rgba(0, 175, 255, 0.2),
+    0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(0, 175, 255, 0.15);
+  backdrop-filter: blur(0.5rem);
+}
+
+.futuristic-button-secondary:hover,
+.futuristic-button-compact.futuristic-button-secondary:hover {
+  transform: translateY(-0.0625rem);
+  background: rgba(0, 175, 255, 0.08);
+  color: #FFFFFF;
+  box-shadow:
+    0 0 0.75rem rgba(0, 175, 255, 0.35),
+    0 0.25rem 0.75rem rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(0, 175, 255, 0.2);
+}
+
+/* Animations */
+@keyframes electric-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 0.5rem rgba(0, 175, 255, 0.6));
+    background-position: 0% 50%;
+  }
+  50% {
+    filter: drop-shadow(0 0 1rem rgba(0, 175, 255, 0.9));
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes neon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0.75rem rgba(0, 175, 255, 0.7));
+    background-position: 0% 50%;
+  }
+  50% {
+    filter: drop-shadow(0 0 1.25rem rgba(0, 212, 255, 0.9));
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .ribbon-panel {
+    padding: clamp(0.35rem, 1.5vw, 0.55rem) clamp(0.85rem, 3.5vw, 1.25rem);
+  }
+
+  .ribbon-large {
+    min-width: clamp(10rem, 70vw, 20rem);
+  }
+
+  .ribbon-small {
+    min-width: clamp(8rem, 60vw, 16rem);
+  }
+
+  .ribbon-compact {
+    min-width: clamp(8rem, 65vw, 18rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .futuristic-button,
+  .futuristic-button-compact {
+    width: 100%;
   }
 }

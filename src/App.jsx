@@ -1,14 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
+import Career from './pages/Career';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Home />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/career" element={<Career />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
