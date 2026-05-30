@@ -1,6 +1,6 @@
 export const companyData = {
   name: 'ERP LOKA',
-  tagline: 'IT Consulting',
+  tagline: 'LEARN. GROW. LEAD.',
   description: 'Delivering reliable and efficient SAP support and Application Management Services',
 
   about: {
@@ -232,10 +232,76 @@ export const careerData = {
   },
 };
 
+export const solutionsData = {
+  title: 'What We Do',
+  subtitle: 'At ERPLOKA IT Consulting, we empower businesses through SAP Automation to enhance efficiency, agility, and growth.',
+  categories: [
+    {
+      title: 'SAP Solutions',
+      icon: 'Lightbulb',
+      items: [
+        'GST Solutions',
+        'E-Way Bill Solutions',
+        'E-Invoicing Solutions',
+        'IMQR Solutions',
+      ],
+    },
+    {
+      title: 'Consulting & Implementation',
+      icon: 'Settings',
+      items: [
+        'Greenfield Implementation',
+        'Brownfield Implementation',
+        'Company Rollout',
+        'Plant Rollout',
+      ],
+    },
+    {
+      title: 'Migration',
+      icon: 'ArrowRightLeft',
+      items: [
+        'ECC to S/4 HANA (Rise with SAP)',
+        'On Premise to Cloud',
+        'OS/DB Migration',
+      ],
+    },
+    {
+      title: 'AMS Services',
+      icon: 'Headphones',
+      items: [
+        'Technical Support',
+        'Functional Support',
+        'SAP Application Support',
+        'Security Services',
+      ],
+    },
+  ],
+};
+
+export const industriesData = {
+  title: 'Industries We Serve',
+  subtitle: 'Delivering tailored SAP solutions across diverse industry verticals',
+  industries: [
+    { title: 'Manufacturing Industry', icon: 'Factory' },
+    { title: 'Retail Industry', icon: 'ShoppingCart' },
+    { title: 'Healthcare & Pharmaceuticals', icon: 'Heart' },
+    { title: 'Automotive Industry', icon: 'Car' },
+    { title: 'Logistics & Supply Chain', icon: 'Truck' },
+    { title: 'Banking & Financial Services', icon: 'Landmark' },
+    { title: 'Oil & Gas Industry', icon: 'Flame' },
+    { title: 'Telecommunications Industry', icon: 'Wifi' },
+    { title: 'Information Technology Industry', icon: 'Monitor' },
+    { title: 'Consumer Goods Industry', icon: 'Package' },
+    { title: 'Energy & Utilities', icon: 'Zap' },
+    { title: 'Food & Beverage Industry', icon: 'UtensilsCrossed' },
+  ],
+};
+
 export const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
+  { name: 'Solutions', href: '#solutions', dropdown: true },
+  { name: 'Industries', href: '#industries', dropdown: true },
   { name: 'Why Us', href: '#why-us' },
   { name: 'Timeline', href: '#timeline' },
   { name: 'Career', href: '/career' },

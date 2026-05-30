@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Calendar, MessageCircle, X, Send } from 'lucide-react';
+import { Calendar, X, Send, Sparkles, Bot } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BookDemoChoice from './BookDemoChoice';
 
@@ -7,159 +7,126 @@ export default function FloatingActions() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Hi! I\'m Loka AI, your intelligent assistant for ERP LOKA. Ask me anything about our SAP services, experience, or how we can help your business!' }
+    {
+      role: 'assistant',
+      content: "Hi! I'm **Loka AI** — your SAP assistant. Ask me anything about our services, expertise, or how we can help your business.",
+    },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   useEffect(() => {
-    scrollToBottom();
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Function to convert URLs in text to clickable links
-  const renderMessageWithLinks = (text) => {
-    const urlRegex = /(https?:\/\/[^\s]+)/g;
-    const parts = text.split(urlRegex);
-
-    return parts.map((part, index) => {
-      if (part.match(urlRegex)) {
-        return (
-          <a
-            key={index}
-            href={part}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-blue-300 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {part}
-          </a>
-        );
-      }
-      return <span key={index}>{part}</span>;
+  const renderContent = (text) => {
+    const boldReg = /\*\*(.+?)\*\*/g;
+    const urlReg = /(https?:\/\/[^\s]+)/g;
+    const parts = text.split(/(https?:\/\/[^\s]+|\*\*[^*]+\*\*)/g);
+    return parts.map((part, i) => {
+      if (boldReg.test(part)) return <strong key={i} style={{ color: '#F5D76E' }}>{part.replace(/\*\*/g, '')}</strong>;
+      if (urlReg.test(part)) return <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80 transition-opacity" style={{ color: '#D9B24C' }}>{part}</a>;
+      return <span key={i}>{part}</span>;
     });
   };
 
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return;
-
     const userMessage = input.trim();
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setIsLoading(true);
-
     try {
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
-        },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}` },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
             {
               role: 'system',
-              content: `You are Loka AI, an intelligent assistant for ERP LOKA, an SAP consulting company. Answer questions ONLY about ERP LOKA based on this information:
+              content: `You are Loka AI, an intelligent assistant for ERP LOKA, an SAP consulting company. Answer ONLY about ERP LOKA based on this info:
 
-COMPANY: ERP LOKA - IT Consulting for SAP Business One
+COMPANY: ERP LOKA – IT Consulting for SAP Business One
+SERVICES: SAP Support & AMS, SAP Implementation (Greenfield, Brownfield, Rollouts), SAP Optimisation (Performance Tuning, Config Changes, Upgrades), SAP Consulting (BPA, Architecture, Best Practices, Change Management)
+EXPERTISE: 6+ years ERP consulting, 250+ man years SAP S/4 HANA, SAP VAR Partner, 100+ clients, 20+ team members
+ACHIEVEMENTS: India's first partner certified for SAP S/4 HANA on-premise deployment, Vendor for world's largest FMCG company, SAP qualified partner packaged solution for CPG Industry
+CONTACT: https://calendly.com/ssakthitselvan7/erp_loka | careers@erploka.com
 
-SERVICES:
-- SAP Support & AMS (Incident Management, Ticket Handling, System Maintenance, User Assistance)
-- SAP Implementation (SAP S/4 HANA, SAP Business One, Module Implementation, System Integration)
-- SAP Optimization (Performance Tuning, Configuration Changes, Enhancement Implementation, System Upgrades)
-- SAP Consulting (Business Process Analysis, Solution Architecture, Best Practice Implementation, Change Management)
-
-EXPERTISE:
-- 6+ years of ERP consulting & implementation
-- 250+ man years of SAP S/4 HANA experience
-- SAP VAR Partner status
-- 100+ happy clients
-- 20+ team members
-- SAP modules: Procurement, Inventory, Finance, Sales, Production, HR
-
-KEY ACHIEVEMENTS:
-- India's first partner certified for SAP S/4 HANA on-premise deployment
-- Vendor for world's largest FMCG company for SAP Services
-- SAP qualified partner packaged solution for Consumer Packaged Goods Industry
-- Strategic partner for SAP Digital Compliance Services & SAP e-Way bill Solution
-
-CONTACT:
-- Schedule meeting: https://calendly.com/ssakthitselvan7/erp_loka
-- Email: careers@erploka.com (for career inquiries)
-
-IMPORTANT RULES:
-1. Keep responses SHORT (2-3 sentences max)
-2. Use SIMPLE, clear language
-3. If question is NOT about ERP LOKA, SAP services, or the company, respond: "I can only answer questions about ERP LOKA and our SAP services. For other inquiries, please contact us at https://calendly.com/ssakthitselvan7/erp_loka"
-4. Do NOT make up information
-5. Be professional and helpful`
+RULES: Keep responses concise (2-3 sentences). If off-topic, say: "I only answer questions about ERP LOKA and our SAP services. Reach us at https://calendly.com/ssakthitselvan7/erp_loka". Never invent info.`,
             },
-            { role: 'user', content: userMessage }
+            { role: 'user', content: userMessage },
           ],
           temperature: 0.7,
           max_tokens: 150,
         }),
       });
-
-      const data = await response.json();
-      const botMessage = data.choices[0]?.message?.content || 'Sorry, I couldn\'t process that. Please contact us at https://calendly.com/ssakthitselvan7/erp_loka';
-
-      setMessages(prev => [...prev, { role: 'assistant', content: botMessage }]);
-    } catch (error) {
-      console.error('Chat error:', error);
-      setMessages(prev => [...prev, {
-        role: 'assistant',
-        content: 'Sorry, I\'m having trouble connecting. Please schedule a meeting with us: https://calendly.com/ssakthitselvan7/erp_loka'
-      }]);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data?.error?.message || 'API error');
+      setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Please contact us at https://calendly.com/ssakthitselvan7/erp_loka' }]);
+    } catch (err) {
+      const msg = err?.message?.includes('401') || err?.message?.includes('Unauthorized')
+        ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/ssakthitselvan7/erp_loka'
+        : 'Something went wrong. Please try again or visit https://calendly.com/ssakthitselvan7/erp_loka';
+      setMessages(prev => [...prev, { role: 'assistant', content: msg }]);
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); }
   };
+
+  const quickQuestions = [
+    'What services do you offer?',
+    'Are you SAP certified?',
+    'Book a demo',
+  ];
 
   return (
     <>
-      {/* Floating Action Buttons */}
+      {/* Floating buttons */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
-        {/* Book Demo Button */}
+        {/* Book Demo */}
         <motion.button
           onClick={() => setIsDemoModalOpen(true)}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.07 }}
           whileTap={{ scale: 0.95 }}
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
-          style={{ boxShadow: '0 4px 20px rgba(249, 115, 22, 0.4)' }}
+          className="w-14 h-14 rounded-2xl flex items-center justify-center"
           title="Book a Demo"
+          style={{ background: '#DC2626', boxShadow: '0 4px 20px rgba(220,38,38,0.45)' }}
         >
-          <Calendar size={24} strokeWidth={2.5} />
+          <Calendar size={22} strokeWidth={2.5} style={{ color: '#000000' }} />
         </motion.button>
 
-        {/* Chatbot Button with Label */}
+        {/* AI Chat toggle */}
         <motion.button
           onClick={() => setIsChatOpen(!isChatOpen)}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.07 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-3 px-4 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
-          style={{ boxShadow: '0 4px 20px rgba(14, 165, 233, 0.4)' }}
+          className="w-14 h-14 rounded-2xl flex items-center justify-center relative overflow-hidden"
           title="Chat with Loka AI"
+          style={{
+            background: '#DC2626',
+            boxShadow: isChatOpen ? '0 4px 16px rgba(220,38,38,0.3)' : '0 0 24px rgba(220,38,38,0.4), 0 4px 16px rgba(0,0,0,0.5)',
+          }}
         >
-          <span className="font-bold text-base whitespace-nowrap">
-            Loka <span className="text-red-500">AI</span>
-          </span>
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-            {isChatOpen ? <X size={20} strokeWidth={2.5} /> : <MessageCircle size={20} strokeWidth={2.5} />}
-          </div>
+          <AnimatePresence mode="wait">
+            {isChatOpen ? (
+              <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>
+                <X size={20} strokeWidth={2.5} style={{ color: '#000000' }} />
+              </motion.span>
+            ) : (
+              <motion.span key="open" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.18 }}
+                className="text-[14px] font-black leading-tight text-center"
+                style={{ color: '#000000', fontFamily: 'Rajdhani, sans-serif', letterSpacing: '0.03em' }}
+              >
+                Loka<br />AI
+              </motion.span>
+            )}
+          </AnimatePresence>
         </motion.button>
       </div>
 
@@ -167,57 +134,80 @@ IMPORTANT RULES:
       <AnimatePresence>
         {isChatOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-3rem)] h-[500px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="fixed bottom-28 right-6 z-40 flex flex-col rounded-2xl overflow-hidden"
+            style={{
+              width: '380px',
+              maxWidth: 'calc(100vw - 2rem)',
+              height: '540px',
+              background: '#0D0D0D',
+              border: '1px solid rgba(217,178,76,0.22)',
+              boxShadow: '0 0 50px rgba(217,178,76,0.12), 0 24px 64px rgba(0,0,0,0.7)',
+            }}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsChatOpen(false)}
-              className="absolute top-3 right-3 z-50 w-8 h-8 flex items-center justify-center rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-all duration-300 shadow-lg group"
-              aria-label="Close chat"
-            >
-              <X size={16} className="group-hover:rotate-90 transition-transform duration-300" strokeWidth={2.5} />
-            </button>
-
-            {/* Chat Header */}
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-4 text-white">
-              <h3 className="font-bold text-lg flex items-center gap-2">
-                <MessageCircle size={20} />
-                Loka AI
-              </h3>
-              <p className="text-sm text-emerald-50">Your intelligent SAP assistant</p>
+            {/* Header */}
+            <div className="flex items-center gap-3 px-4 py-3.5 flex-shrink-0" style={{ background: '#111111', borderBottom: '1px solid rgba(217,178,76,0.15)' }}>
+              {/* Avatar */}
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(217,178,76,0.2), rgba(217,178,76,0.08))', border: '1px solid rgba(217,178,76,0.35)' }}>
+                <Bot size={17} style={{ color: '#D9B24C' }} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <h3 className="font-bold text-sm text-white" style={{ fontFamily: 'Rajdhani, sans-serif', letterSpacing: '0.04em' }}>
+                    Loka <span style={{ color: '#D9B24C' }}>AI</span>
+                  </h3>
+                  <span className="flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(34,197,94,0.12)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.2)' }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                    Online
+                  </span>
+                </div>
+                <p className="text-[11px] truncate" style={{ color: '#666' }}>SAP Business Assistant</p>
+              </div>
+              {/* Close button inside header */}
+              <button
+                onClick={() => setIsChatOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-xl flex-shrink-0 transition-all duration-200 hover:scale-105 group"
+                style={{ background: 'rgba(220,38,38,0.15)', border: '1px solid rgba(220,38,38,0.3)' }}
+                aria-label="Close chat"
+              >
+                <X size={15} strokeWidth={2.5} style={{ color: '#f87171' }} className="group-hover:rotate-90 transition-transform duration-300" />
+              </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50">
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" style={{ background: '#090909', scrollbarWidth: 'thin', scrollbarColor: 'rgba(217,178,76,0.2) transparent' }}>
               {messages.map((msg, idx) => (
-                <div
-                  key={idx}
-                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
+                <div key={idx} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  {msg.role === 'assistant' && (
+                    <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 mt-1" style={{ background: 'rgba(217,178,76,0.1)', border: '1px solid rgba(217,178,76,0.25)' }}>
+                      <Sparkles size={11} style={{ color: '#D9B24C' }} />
+                    </div>
+                  )}
                   <div
-                    className={`max-w-[80%] px-4 py-2 rounded-2xl break-words ${
+                    className="max-w-[75%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed break-words"
+                    style={
                       msg.role === 'user'
-                        ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                        : 'bg-white border border-slate-200 text-slate-800'
-                    }`}
+                        ? { background: 'linear-gradient(135deg, #D9B24C, #E8C462)', color: '#0A0A0A', fontWeight: '500', borderBottomRightRadius: '4px' }
+                        : { background: '#1A1A1A', color: '#E5E5E5', border: '1px solid rgba(217,178,76,0.12)', borderBottomLeftRadius: '4px' }
+                    }
                   >
-                    <p className="text-sm leading-relaxed break-words overflow-wrap-anywhere">
-                      {renderMessageWithLinks(msg.content)}
-                    </p>
+                    {renderContent(msg.content)}
                   </div>
                 </div>
               ))}
               {isLoading && (
-                <div className="flex justify-start">
-                  <div className="bg-white border border-slate-200 px-4 py-2 rounded-2xl">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                <div className="flex gap-2 justify-start">
+                  <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 mt-1" style={{ background: 'rgba(217,178,76,0.1)', border: '1px solid rgba(217,178,76,0.25)' }}>
+                    <Sparkles size={11} style={{ color: '#D9B24C' }} />
+                  </div>
+                  <div className="px-4 py-3 rounded-2xl" style={{ background: '#1A1A1A', border: '1px solid rgba(217,178,76,0.12)', borderBottomLeftRadius: '4px' }}>
+                    <div className="flex gap-1.5 items-center h-4">
+                      {[0, 0.15, 0.3].map((delay, i) => (
+                        <div key={i} className="w-2 h-2 rounded-full animate-bounce" style={{ background: '#D9B24C', animationDelay: `${delay}s` }} />
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -225,32 +215,87 @@ IMPORTANT RULES:
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Quick questions */}
+            {messages.length === 1 && !isLoading && (
+              <div className="px-4 pb-2 flex-shrink-0" style={{ background: '#090909' }}>
+                <div className="flex flex-wrap gap-2">
+                  {quickQuestions.map((q) => (
+                    <button
+                      key={q}
+                      onClick={async () => {
+                        if (isLoading) return;
+                        setMessages(prev => [...prev, { role: 'user', content: q }]);
+                        setIsLoading(true);
+                        try {
+                          const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}` },
+                            body: JSON.stringify({
+                              model: 'llama-3.3-70b-versatile',
+                              messages: [
+                                { role: 'system', content: `You are Loka AI for ERP LOKA SAP consulting. Keep answers to 2-3 sentences. Only answer about ERP LOKA services.` },
+                                { role: 'user', content: q },
+                              ],
+                              temperature: 0.7, max_tokens: 150,
+                            }),
+                          });
+                          const data = await res.json();
+                          if (!res.ok) throw new Error(data?.error?.message || 'API error');
+                          setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Contact us at https://calendly.com/ssakthitselvan7/erp_loka' }]);
+                        } catch (err) {
+                          const msg = err?.message?.includes('401') || err?.message?.includes('Unauthorized')
+                            ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/ssakthitselvan7/erp_loka'
+                            : 'Something went wrong. Please try again or visit https://calendly.com/ssakthitselvan7/erp_loka';
+                          setMessages(prev => [...prev, { role: 'assistant', content: msg }]);
+                        } finally {
+                          setIsLoading(false);
+                        }
+                      }}
+                      className="text-xs px-3 py-1.5 rounded-full transition-all duration-200 hover:bg-[#D9B24C]/15"
+                      style={{ border: '1px solid rgba(217,178,76,0.25)', color: '#D9B24C', background: 'rgba(217,178,76,0.05)' }}
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Input */}
-            <div className="p-4 bg-white border-t border-slate-200">
-              <div className="flex gap-2">
+            <div className="px-4 py-3 flex-shrink-0" style={{ background: '#0D0D0D', borderTop: '1px solid rgba(217,178,76,0.12)' }}>
+              <div className="flex gap-2 items-center">
                 <input
                   type="text"
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
+                  onChange={e => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about our services..."
-                  className="flex-1 px-4 py-2 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+                  placeholder="Ask about our SAP services…"
                   disabled={isLoading}
+                  className="flex-1 px-4 py-2.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none transition-all duration-200"
+                  style={{
+                    background: '#161616',
+                    border: '1px solid rgba(217,178,76,0.2)',
+                  }}
+                  onFocus={e => { e.target.style.borderColor = '#D9B24C'; e.target.style.boxShadow = '0 0 0 2px rgba(217,178,76,0.12)'; }}
+                  onBlur={e => { e.target.style.borderColor = 'rgba(217,178,76,0.2)'; e.target.style.boxShadow = 'none'; }}
                 />
-                <button
+                <motion.button
                   onClick={handleSendMessage}
                   disabled={isLoading || !input.trim()}
-                  className="w-10 h-10 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white flex items-center justify-center hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
+                  style={{ background: 'linear-gradient(135deg, #D9B24C, #E8C462)', boxShadow: '0 2px 12px rgba(217,178,76,0.35)' }}
                 >
-                  <Send size={18} />
-                </button>
+                  <Send size={15} style={{ color: '#0A0A0A' }} strokeWidth={2.5} />
+                </motion.button>
               </div>
+              <p className="text-center text-[10px] mt-2" style={{ color: '#444' }}>Powered by Loka AI · Only answers about ERP LOKA</p>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Book Demo Modal */}
       <BookDemoChoice isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
     </>
   );

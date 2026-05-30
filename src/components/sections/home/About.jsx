@@ -32,13 +32,13 @@ export default function About() {
   }, [slides.length]);
 
   return (
-    <section id="about" className="relative min-h-screen flex items-center py-20 overflow-hidden bg-slate-950">
+    <section id="about" className="relative min-h-screen flex items-center py-20 overflow-hidden" style={{ background: '#0A0A0A' }}>
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.03)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(217,178,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(217,178,76,0.03)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div className="w-full px-6 relative z-10" style={{ maxWidth: "min(1700px, 92vw)", margin: "0 auto" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left Side - Static Title */}
@@ -107,9 +107,9 @@ export default function About() {
                     style={{
                       background: slideImages[currentSlide]
                         ? 'rgba(0, 0, 0, 0.25)'
-                        : 'rgba(15, 23, 42, 0.6)',
+                        : 'rgba(17, 17, 17, 0.6)',
                       backdropFilter: 'blur(3px)',
-                      border: '1px solid rgba(14, 165, 233, 0.3)',
+                      border: '1px solid rgba(217, 178, 76, 0.3)',
                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
                     }}
                   />
@@ -121,10 +121,10 @@ export default function About() {
                   <div className="p-8 md:p-10 h-full flex flex-col relative z-10">
                     {/* Slide Header */}
                     <div className="mb-6 bg-slate-900/60 backdrop-blur-sm px-5 py-4 rounded-xl border border-electric/30">
-                      <div className="text-cyan-300 text-sm font-bold tracking-widest mb-2">
+                      <div className="text-sm font-bold tracking-widest mb-2" style={{ color: '#D9B24C' }}>
                         {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-electric font-heading" style={{ textShadow: '0 0 20px rgba(14, 165, 233, 0.8), 0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+                      <h3 className="text-2xl md:text-3xl font-extrabold text-electric font-heading" style={{ textShadow: '0 0 20px rgba(217, 178, 76, 0.8), 0 2px 8px rgba(0, 0, 0, 0.9)' }}>
                         {slides[currentSlide].title}
                       </h3>
                     </div>

@@ -48,7 +48,8 @@ export default function BookDemoChoice({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-[2rem] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-4xl max-h-[90vh] rounded-[2rem] shadow-2xl overflow-hidden"
+            style={{ backgroundColor: '#111111' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button - Professional size */}
@@ -61,16 +62,16 @@ export default function BookDemoChoice({ isOpen, onClose }) {
             </button>
 
             {/* Gradient top bar */}
-            <div className="h-2 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500"></div>
+            <div className="h-2" style={{ background: 'linear-gradient(to right, #D9B24C, #E0B84F)' }}></div>
 
             {/* Content - Scrollable if needed */}
             <div className="p-6 md:p-10 overflow-y-auto max-h-[calc(90vh-8px)]">
               {/* Header */}
               <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3 font-heading">
-                  Book Your <span className="text-blue-600">Demo</span>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3 font-heading">
+                  Book Your <span style={{ color: '#D9B24C' }}>Demo</span>
                 </h2>
-                <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
+                <p className="text-base md:text-lg max-w-2xl mx-auto" style={{ color: '#CFCFCF' }}>
                   Choose your preferred way to connect with us
                 </p>
               </div>
@@ -83,15 +84,18 @@ export default function BookDemoChoice({ isOpen, onClose }) {
                   onClick={handleCalendlyClick}
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative rounded-[1.5rem] overflow-hidden border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 text-left bg-gradient-to-br from-blue-50 to-cyan-50 hover:shadow-xl"
+                  className="group relative rounded-[1.5rem] overflow-hidden border-2 transition-all duration-300 text-left hover:shadow-xl"
+                  style={{ backgroundColor: '#1A1A1A', borderColor: 'rgba(217,178,76,0.3)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = '#D9B24C'}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(217,178,76,0.3)'}
                 >
                   {/* Top accent */}
-                  <div className="h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                  <div className="h-1.5" style={{ background: 'linear-gradient(to right, #D9B24C, #E0B84F)' }}></div>
 
                   <div className="p-6">
                     {/* Calendly SVG Logo */}
                     <div className="mb-6">
-                      <div className="w-full h-20 flex items-center justify-center bg-white rounded-2xl shadow-sm p-4">
+                      <div className="w-full h-20 flex items-center justify-center rounded-2xl shadow-sm p-4" style={{ backgroundColor: '#222222' }}>
                         <img
                           src={calendlySvg}
                           alt="Calendly"
@@ -101,42 +105,42 @@ export default function BookDemoChoice({ isOpen, onClose }) {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-blue-600 mb-3 font-heading flex items-center gap-2">
+                    <h3 className="text-2xl md:text-3xl font-extrabold mb-3 font-heading flex items-center gap-2" style={{ color: '#D9B24C' }}>
                       Quick Meeting
                       <ExternalLink size={20} className="opacity-60 group-hover:opacity-100 transition-opacity" />
                     </h3>
 
                     {/* Description */}
-                    <p className="text-slate-700 text-base leading-relaxed mb-6">
+                    <p className="text-base leading-relaxed mb-6" style={{ color: '#CFCFCF' }}>
                       Schedule an instant meeting via Calendly. Quick and easy - pick a time that works for you.
                     </p>
 
                     {/* Features */}
                     <ul className="space-y-3 mb-6">
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">15-30 minute slots available</span>
                       </li>
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">Instant confirmation</span>
                       </li>
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">Calendar sync integration</span>
                       </li>
                     </ul>
 
                     {/* CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-blue-200">
-                      <span className="text-blue-600 font-bold text-lg">Open Calendly</span>
-                      <ArrowRight className="text-blue-600 group-hover:translate-x-2 transition-transform" size={24} strokeWidth={2.5} />
+                    <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: 'rgba(217,178,76,0.3)' }}>
+                      <span className="font-bold text-lg" style={{ color: '#D9B24C' }}>Open Calendly</span>
+                      <ArrowRight className="group-hover:translate-x-2 transition-transform" style={{ color: '#D9B24C' }} size={24} strokeWidth={2.5} />
                     </div>
                   </div>
                 </motion.button>
@@ -146,15 +150,18 @@ export default function BookDemoChoice({ isOpen, onClose }) {
                   onClick={handleFormClick}
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative rounded-[1.5rem] overflow-hidden border-2 border-emerald-200 hover:border-emerald-400 transition-all duration-300 text-left bg-gradient-to-br from-emerald-50 to-teal-50 hover:shadow-xl"
+                  className="group relative rounded-[1.5rem] overflow-hidden border-2 transition-all duration-300 text-left hover:shadow-xl"
+                  style={{ backgroundColor: '#1A1A1A', borderColor: 'rgba(217,178,76,0.3)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = '#D9B24C'}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(217,178,76,0.3)'}
                 >
                   {/* Top accent */}
-                  <div className="h-1.5 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                  <div className="h-1.5" style={{ background: 'linear-gradient(to right, #D9B24C, #E0B84F)' }}></div>
 
                   <div className="p-6">
                     {/* Company Logo - similar to Calendly card */}
                     <div className="mb-6">
-                      <div className="w-full h-20 flex items-center justify-center bg-white rounded-2xl shadow-sm p-4">
+                      <div className="w-full h-20 flex items-center justify-center rounded-2xl shadow-sm p-4" style={{ backgroundColor: '#222222' }}>
                         <img
                           src="/logo_final_v.png"
                           alt="ERP LOKA"
@@ -164,41 +171,41 @@ export default function BookDemoChoice({ isOpen, onClose }) {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-emerald-600 mb-3 font-heading">
+                    <h3 className="text-2xl md:text-3xl font-extrabold mb-3 font-heading" style={{ color: '#D9B24C' }}>
                       Detailed Discussion
                     </h3>
 
                     {/* Description */}
-                    <p className="text-slate-700 text-base leading-relaxed mb-6">
+                    <p className="text-base leading-relaxed mb-6" style={{ color: '#CFCFCF' }}>
                       Share comprehensive requirements via our detailed form. Perfect for complex projects.
                     </p>
 
                     {/* Features */}
                     <ul className="space-y-3 mb-6">
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">Comprehensive requirements form</span>
                       </li>
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">Share detailed project needs</span>
                       </li>
-                      <li className="flex items-center gap-3 text-slate-600">
-                        <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                      <li className="flex items-center gap-3" style={{ color: '#CFCFCF' }}>
+                        <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(217,178,76,0.15)' }}>
+                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#D9B24C' }}></div>
                         </div>
                         <span className="text-sm font-medium">Custom solution planning</span>
                       </li>
                     </ul>
 
                     {/* CTA */}
-                    <div className="flex items-center justify-between pt-4 border-t border-emerald-200">
-                      <span className="text-emerald-600 font-bold text-lg">Fill Detailed Form</span>
-                      <ArrowRight className="text-emerald-600 group-hover:translate-x-2 transition-transform" size={24} strokeWidth={2.5} />
+                    <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: 'rgba(217,178,76,0.3)' }}>
+                      <span className="font-bold text-lg" style={{ color: '#D9B24C' }}>Fill Detailed Form</span>
+                      <ArrowRight className="group-hover:translate-x-2 transition-transform" style={{ color: '#D9B24C' }} size={24} strokeWidth={2.5} />
                     </div>
                   </div>
                 </motion.button>
@@ -206,9 +213,9 @@ export default function BookDemoChoice({ isOpen, onClose }) {
               </div>
 
               {/* Bottom note */}
-              <div className="mt-8 pt-6 border-t border-slate-200 text-center">
-                <p className="text-slate-600 text-base">
-                  Not sure which option? Start with a <span className="text-blue-600 font-bold">quick meeting</span> to discuss your needs
+              <div className="mt-8 pt-6 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                <p className="text-base" style={{ color: '#999999' }}>
+                  Not sure which option? Start with a <span className="font-bold" style={{ color: '#D9B24C' }}>quick meeting</span> to discuss your needs
                 </p>
               </div>
             </div>

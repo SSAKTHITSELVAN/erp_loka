@@ -24,15 +24,16 @@ export default function Hero() {
       </div>
 
       {/* Hero Content */}
-      <div className="max-w-[1440px] mx-auto px-6 w-full relative z-10">
+      <div className="w-full px-6 relative z-10" style={{ maxWidth: 'min(1700px, 92vw)', margin: '0 auto' }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Left Content */}
           <div className="lg:col-span-9 space-y-8 md:space-y-10">
             <div className="space-y-4 md:space-y-6">
               <h1
-                className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1]"
+                className="leading-[1.1]"
                 style={{
+                  fontSize: 'clamp(2.5rem, 5vw, 7rem)',
                   color: '#ffffff',
                   fontFamily: 'Rajdhani, sans-serif',
                   fontWeight: '900',
@@ -42,24 +43,25 @@ export default function Hero() {
                 Transform Your Business
                 <br />
                 with <span style={{
-                  color: '#0ea5e9',
+                  color: '#D9B24C',
                   fontWeight: '900',
-                  textShadow: '0 0 25px rgba(14,165,233,0.9), 0 3px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)'
+                  textShadow: '0 0 25px rgba(217,178,76,0.9), 0 3px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)'
                 }}>SAP Excellence</span>
                 <br />
                 <span style={{
-                  color: '#f97316',
+                  color: '#FFFFFF',
                   fontWeight: '900',
-                  textShadow: '0 0 25px rgba(249,115,22,0.9), 0 3px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)'
+                  textShadow: '0 0 25px rgba(217,178,76,0.9), 0 3px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,1)'
                 }}>Delivered Right</span>
               </h1>
 
               <p
-                className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl border-l-4 pl-6"
+                className="leading-relaxed max-w-3xl border-l-4 pl-6"
+                style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)' }}
                 style={{
                   fontFamily: 'IBM Plex Sans, sans-serif',
                   fontWeight: '600',
-                  borderColor: '#0ea5e9',
+                  borderColor: '#D9B24C',
                   color: '#ffffff',
                   textShadow: '0 3px 8px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,1)'
                 }}
@@ -72,10 +74,10 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4 md:pt-6">
               <a
                 href="#contact"
-                className="px-6 py-3 text-base font-bold flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:shadow-[0_0_50px_rgba(249,115,22,0.8)] group hover:-translate-y-1"
+                className="px-6 py-3 text-base font-bold flex items-center justify-center space-x-2 transition-all duration-300 shadow-[0_0_30px_rgba(217,178,76,0.5)] hover:shadow-[0_0_50px_rgba(217,178,76,0.8)] group hover:-translate-y-1"
                 style={{
-                  backgroundColor: '#f97316',
-                  color: '#FFFFFF',
+                  backgroundColor: '#D9B24C',
+                  color: '#0A0A0A',
                   fontFamily: 'Rajdhani, sans-serif',
                   letterSpacing: '0.05em',
                   borderRadius: '4px'
@@ -89,9 +91,9 @@ export default function Hero() {
                 href="mailto:info@erploka.com"
                 className="px-6 py-3 text-base font-bold flex items-center justify-center space-x-2 transition-all duration-300 group hover:-translate-y-1"
                 style={{
-                  border: '2px solid #0ea5e9',
-                  backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                  color: '#0ea5e9',
+                  border: '2px solid #FFFFFF',
+                  backgroundColor: 'transparent',
+                  color: '#D9B24C',
                   fontFamily: 'Rajdhani, sans-serif',
                   letterSpacing: '0.05em',
                   borderRadius: '4px',
@@ -113,7 +115,7 @@ export default function Hero() {
       <div
         className="absolute bottom-0 left-0 right-0 h-1"
         style={{
-          background: 'linear-gradient(90deg, #f97316 0%, #0ea5e9 50%, #f97316 100%)'
+          background: 'linear-gradient(90deg, #D9B24C 0%, #FFFFFF 50%, #D9B24C 100%)'
         }}
       ></div>
     </section>

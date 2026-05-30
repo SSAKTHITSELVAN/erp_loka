@@ -1,5 +1,5 @@
 /* =================================================================
-   ERP LOKA — Valliam Layout with Dark Theme Colors
+   ERP LOKA — Valliam Layout with Black + White + Gold Theme
    ================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Cinzel:wght@400;500;600&display=swap');
@@ -9,22 +9,26 @@
 /* Design Tokens */
 @theme {
 
-  /* Enterprise Core */
-  --color-primary: #0A1F44;
-  --color-primary-light: #0057D9;
-  --color-primary-bright: #2F80ED;
+  /* Custom breakpoints for large monitors */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
+
+  /* Enterprise Core — Gold */
+  --color-primary: #0A0A0A;
+  --color-primary-light: #D9B24C;
+  --color-primary-bright: #E0B84F;
 
   /* Backgrounds */
-  --color-bg: #F8FAFC;
-  --color-bg-dark: #071226;
-  --color-surface: #FFFFFF;
+  --color-bg: #0A0A0A;
+  --color-bg-dark: #050505;
+  --color-surface: #111111;
 
   /* Text */
-  --color-text: #111827;
-  --color-text-muted: #6B7280;
+  --color-text: #F2F2F2;
+  --color-text-muted: #CFCFCF;
 
   /* Borders */
-  --color-border: #D1D5DB;
+  --color-border: rgba(217, 178, 76, 0.25);
 
   /* Success */
   --color-success: #0F9D58;
@@ -38,21 +42,21 @@
   --radius-card: 24px;
 
   /* Shadows */
-  --shadow-soft: 0 10px 40px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 40px rgba(217, 178, 76, 0.08);
 }
 
 /* Base Styles */
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Set base font size to 16px for consistency across all browsers/OS */
-    font-size: 16px;
+    /* Fluid base font: 16px at 1440px, scales to 20px at 2560px, max 22px */
+    font-size: clamp(16px, calc(16px + (20 - 16) * ((100vw - 1440px) / (2560 - 1440))), 22px);
   }
 
   body {
     font-family: var(--font-body);
-    background-color: #020617;
-    color: #f1f5f9;
+    background-color: #0A0A0A;
+    color: #F2F2F2;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -60,7 +64,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: #f1f5f9;
+    color: #F2F2F2;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -78,67 +82,79 @@
   }
 
   a {
-    color: #0ea5e9;
+    color: #D9B24C;
     text-decoration: none;
     transition: all 0.3s ease;
   }
 
   a:hover {
-    color: #38bdf8;
+    color: #E0B84F;
   }
 }
 
-/* Scrollbar - Dark Theme */
+/* Scrollbar - Gold Theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #0f172a;
+  background-color: #0A0A0A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #0ea5e9, #0284c7);
+  background: linear-gradient(180deg, #D9B24C, #B8962F);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #38bdf8, #0ea5e9);
+  background: linear-gradient(180deg, #E0B84F, #D9B24C);
 }
 
-/* Selection - Electric Blue */
+/* Selection - Gold */
 ::selection {
-  background-color: #0ea5e9;
-  color: #020617;
+  background-color: #D9B24C;
+  color: #0A0A0A;
 }
 
 ::-moz-selection {
-  background-color: #0ea5e9;
-  color: #020617;
+  background-color: #D9B24C;
+  color: #0A0A0A;
 }
 
-/* Container - Max Width 1440px (Valliam Layout) */
+/* Container - fluid max-width */
 .container-custom {
-  max-width: 1440px;
+  max-width: min(1440px, 92vw);
   margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: clamp(1rem, 3vw, 3rem);
+  padding-right: clamp(1rem, 3vw, 3rem);
 }
 
-/* Section Spacing - Valliam Style */
+@media (min-width: 1920px) {
+  .container-custom {
+    max-width: min(1700px, 90vw);
+  }
+}
+
+@media (min-width: 2560px) {
+  .container-custom {
+    max-width: min(2100px, 88vw);
+  }
+}
+
+/* Section Spacing */
 .section {
-  padding: 6rem 1.5rem;
-  background-color: #020617;
+  padding: clamp(4rem, 6vw, 8rem) clamp(1rem, 3vw, 3rem);
+  background-color: #0A0A0A;
 }
 
 .section-alt {
-  padding: 6rem 1.5rem;
-  background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+  padding: clamp(4rem, 6vw, 8rem) clamp(1rem, 3vw, 3rem);
+  background: linear-gradient(180deg, #111111 0%, #0A0A0A 100%);
 }
 
-/* Gradient Text - Electric Blue */
+/* Gradient Text - Gold */
 .gradient-text {
-  background: linear-gradient(135deg, #0ea5e9, #06b6d4, #38bdf8);
+  background: linear-gradient(135deg, #D9B24C, #E0B84F, #F5D675);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -151,10 +167,10 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Bento Card - Dark Theme */
+/* Bento Card - Dark Theme with Gold Borders */
 .bento-card {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(14, 165, 233, 0.2);
+  background: rgba(17, 17, 17, 0.9);
+  border: 1px solid rgba(217, 178, 76, 0.2);
   border-radius: 1.5rem;
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -164,21 +180,21 @@
 }
 
 .bento-card:hover {
-  border-color: rgba(14, 165, 233, 0.6);
+  border-color: rgba(217, 178, 76, 0.6);
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(14, 165, 233, 0.15);
+  box-shadow: 0 20px 60px rgba(217, 178, 76, 0.15);
 }
 
 /* Glow Effects */
-.glow-electric { box-shadow: 0 0 30px rgba(14, 165, 233, 0.4); }
-.glow-orange { box-shadow: 0 0 30px rgba(249, 115, 22, 0.4); }
+.glow-electric { box-shadow: 0 0 30px rgba(217, 178, 76, 0.4); }
+.glow-orange { box-shadow: 0 0 30px rgba(217, 178, 76, 0.3); }
 
-/* Logo Text Styles - Cinzel Font with Blue Gradient */
+/* Logo Text Styles - Cinzel Font with White Gradient */
 .logo-main-title {
   font-family: 'Cinzel', serif;
   font-weight: 600;
   letter-spacing: 6px;
-  background: linear-gradient(90deg, #001b7a 0%, #0027a8 35%, #001b7a 70%, #0047ff 100%);
+  background: linear-gradient(90deg, #FFFFFF 0%, #F2F2F2 35%, #FFFFFF 70%, #E8E8E8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -189,7 +205,7 @@
   font-family: 'Cinzel', serif;
   font-weight: 600;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #0047ff 0%, #002fb8 100%);
+  background: linear-gradient(90deg, #FFFFFF 0%, #E8E8E8 50%, #FFFFFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -247,22 +263,22 @@
 }
 
 /* =================================================================
-   Futuristic Hero Ribbon Panels & Effects
+   Futuristic Hero Ribbon Panels & Effects — Gold Theme
    ================================================================= */
 
-/* Ribbon Panel Base - More Subtle */
+/* Ribbon Panel Base - Gold Tinted */
 .ribbon-panel {
   position: relative;
   display: inline-block;
   padding: clamp(0.4rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 2rem);
-  background: linear-gradient(135deg, rgba(0, 17, 63, 0.6) 0%, rgba(2, 11, 45, 0.7) 100%);
-  border: 1px solid rgba(0, 175, 255, 0.25);
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(17, 17, 17, 0.9) 100%);
+  border: 1px solid rgba(217, 178, 76, 0.25);
   border-radius: 0.125rem;
   backdrop-filter: blur(0.5rem);
   box-shadow:
-    0 0.125rem 0.75rem rgba(0, 175, 255, 0.1),
+    0 0.125rem 0.75rem rgba(217, 178, 76, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -1px 0 rgba(0, 175, 255, 0.15);
+    inset 0 -1px 0 rgba(217, 178, 76, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
@@ -274,7 +290,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(0, 175, 255, 0.2) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 178, 76, 0.2) 50%, transparent 100%);
   transition: left 0.6s ease;
 }
 
@@ -289,7 +305,7 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, transparent 60%, rgba(0, 175, 255, 0.1) 100%);
+  background: linear-gradient(135deg, transparent 60%, rgba(217, 178, 76, 0.1) 100%);
   pointer-events: none;
 }
 
@@ -319,7 +335,7 @@
   text-shadow:
     0 0 0.5rem rgba(255, 255, 255, 0.3),
     0 0.125rem 0.25rem rgba(0, 0, 0, 0.5),
-    0 0.25rem 0.5rem rgba(0, 175, 255, 0.2);
+    0 0.25rem 0.5rem rgba(217, 178, 76, 0.2);
   filter: drop-shadow(0 0 0.25rem rgba(255, 255, 255, 0.2));
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -336,78 +352,78 @@
   -webkit-text-fill-color: transparent;
   text-shadow:
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.4),
-    0 0 0.25rem rgba(0, 175, 255, 0.1);
+    0 0 0.25rem rgba(217, 178, 76, 0.1);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-/* Electric Blue Text */
+/* Electric Gold Text (was Electric Blue) */
 .electric-text {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 800;
   font-style: italic;
-  background: linear-gradient(135deg, #00AFFF 0%, #00D4FF 50%, #00AFFF 100%);
+  background: linear-gradient(135deg, #D9B24C 0%, #E0B84F 50%, #D9B24C 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   text-shadow:
-    0 0 1rem rgba(0, 175, 255, 0.8),
-    0 0 2rem rgba(0, 175, 255, 0.5),
+    0 0 1rem rgba(217, 178, 76, 0.8),
+    0 0 2rem rgba(217, 178, 76, 0.5),
     0 0.125rem 0.25rem rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(0 0 0.5rem rgba(0, 175, 255, 0.6));
+  filter: drop-shadow(0 0 0.5rem rgba(217, 178, 76, 0.6));
   animation: electric-pulse 3s ease-in-out infinite;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-/* Electric Blue Text - Subtle Version */
+/* Electric Gold Text - Subtle Version */
 .electric-text-subtle {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-style: italic;
-  background: linear-gradient(135deg, #0099E5 0%, #00AFFF 50%, #0099E5 100%);
+  background: linear-gradient(135deg, #B8962F 0%, #D9B24C 50%, #B8962F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
-    0 0 0.5rem rgba(0, 175, 255, 0.3),
+    0 0 0.5rem rgba(217, 178, 76, 0.3),
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.6);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-/* Neon Cyan Text */
+/* Neon Gold Text (was Neon Cyan) */
 .neon-text {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 800;
   font-style: italic;
-  background: linear-gradient(135deg, #009DFF 0%, #00AFFF 25%, #00D4FF 50%, #00AFFF 75%, #009DFF 100%);
+  background: linear-gradient(135deg, #B8962F 0%, #D9B24C 25%, #F5D675 50%, #D9B24C 75%, #B8962F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 300% 300%;
   text-shadow:
-    0 0 0.75rem rgba(0, 157, 255, 0.9),
-    0 0 1.5rem rgba(0, 175, 255, 0.6),
+    0 0 0.75rem rgba(217, 178, 76, 0.9),
+    0 0 1.5rem rgba(217, 178, 76, 0.6),
     0 0.125rem 0.25rem rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(0 0 0.75rem rgba(0, 175, 255, 0.7));
+  filter: drop-shadow(0 0 0.75rem rgba(217, 178, 76, 0.7));
   animation: neon-glow 4s ease-in-out infinite;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-/* Neon Cyan Text - Subtle Version */
+/* Neon Gold Text - Subtle Version */
 .neon-text-subtle {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
   font-style: italic;
-  background: linear-gradient(135deg, #008ACC 0%, #00AFFF 50%, #008ACC 100%);
+  background: linear-gradient(135deg, #B8962F 0%, #D9B24C 50%, #B8962F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow:
-    0 0 0.5rem rgba(0, 175, 255, 0.4),
+    0 0 0.5rem rgba(217, 178, 76, 0.4),
     0 0.0625rem 0.125rem rgba(0, 0, 0, 0.6);
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -464,11 +480,11 @@
 
 .futuristic-button-primary,
 .futuristic-button-compact.futuristic-button-primary {
-  background: linear-gradient(135deg, #0099E5 0%, #008ACC 100%);
-  color: #FFFFFF;
-  border: 1px solid rgba(0, 175, 255, 0.3);
+  background: linear-gradient(135deg, #D9B24C 0%, #B8962F 100%);
+  color: #0A0A0A;
+  border: 1px solid rgba(217, 178, 76, 0.5);
   box-shadow:
-    0 0 0.5rem rgba(0, 175, 255, 0.25),
+    0 0 0.5rem rgba(217, 178, 76, 0.25),
     0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
@@ -477,53 +493,53 @@
 .futuristic-button-compact.futuristic-button-primary:hover {
   transform: translateY(-0.0625rem);
   box-shadow:
-    0 0 0.75rem rgba(0, 175, 255, 0.4),
+    0 0 0.75rem rgba(217, 178, 76, 0.4),
     0 0.25rem 0.75rem rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .futuristic-button-secondary,
 .futuristic-button-compact.futuristic-button-secondary {
-  background: rgba(2, 11, 45, 0.4);
-  color: #00AFFF;
-  border: 1.5px solid rgba(0, 175, 255, 0.4);
+  background: rgba(10, 10, 10, 0.6);
+  color: #D9B24C;
+  border: 1.5px solid rgba(217, 178, 76, 0.4);
   box-shadow:
-    0 0 0.5rem rgba(0, 175, 255, 0.2),
+    0 0 0.5rem rgba(217, 178, 76, 0.2),
     0 0.125rem 0.5rem rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(0, 175, 255, 0.15);
+    inset 0 1px 0 rgba(217, 178, 76, 0.15);
   backdrop-filter: blur(0.5rem);
 }
 
 .futuristic-button-secondary:hover,
 .futuristic-button-compact.futuristic-button-secondary:hover {
   transform: translateY(-0.0625rem);
-  background: rgba(0, 175, 255, 0.08);
+  background: rgba(217, 178, 76, 0.08);
   color: #FFFFFF;
   box-shadow:
-    0 0 0.75rem rgba(0, 175, 255, 0.35),
+    0 0 0.75rem rgba(217, 178, 76, 0.35),
     0 0.25rem 0.75rem rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(0, 175, 255, 0.2);
+    inset 0 1px 0 rgba(217, 178, 76, 0.2);
 }
 
 /* Animations */
 @keyframes electric-pulse {
   0%, 100% {
-    filter: drop-shadow(0 0 0.5rem rgba(0, 175, 255, 0.6));
+    filter: drop-shadow(0 0 0.5rem rgba(217, 178, 76, 0.6));
     background-position: 0% 50%;
   }
   50% {
-    filter: drop-shadow(0 0 1rem rgba(0, 175, 255, 0.9));
+    filter: drop-shadow(0 0 1rem rgba(217, 178, 76, 0.9));
     background-position: 100% 50%;
   }
 }
 
 @keyframes neon-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 0.75rem rgba(0, 175, 255, 0.7));
+    filter: drop-shadow(0 0 0.75rem rgba(217, 178, 76, 0.7));
     background-position: 0% 50%;
   }
   50% {
-    filter: drop-shadow(0 0 1.25rem rgba(0, 212, 255, 0.9));
+    filter: drop-shadow(0 0 1.25rem rgba(245, 214, 117, 0.9));
     background-position: 100% 50%;
   }
 }
@@ -606,10 +622,10 @@
   z-index: 10;
 }
 
-/* Electric color variable for consistency */
+/* Gold color variables for consistency */
 :root {
-  --color-electric: #0ea5e9;
-  --color-neon-blue: #06b6d4;
+  --color-electric: #D9B24C;
+  --color-neon-blue: #E0B84F;
 }
 
 /* Progress bar animation for About section */
@@ -619,10 +635,67 @@
 }
 
 @keyframes fillProgress {
-  from {
-    width: 0%;
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* =================================================================
+   Large / Ultra-wide Monitor Responsive Overrides
+   ================================================================= */
+
+/* On 1920px+ screens, widen max-w-7xl sections and navbar */
+@media (min-width: 1920px) {
+  /* Widen all major content containers */
+  .max-w-7xl {
+    max-width: min(1700px, 90vw) !important;
   }
-  to {
-    width: 100%;
+  .max-w-\[1320px\] {
+    max-width: min(1600px, 90vw) !important;
   }
+  .max-w-\[1440px\] {
+    max-width: min(1700px, 90vw) !important;
+  }
+  /* Navbar height */
+  nav .h-16 {
+    height: 5rem !important;
+  }
+  /* Bigger scroll cards */
+  .scroll-card {
+    width: 540px !important;
+    min-width: 540px !important;
+    min-height: 580px !important;
+  }
+}
+
+@media (min-width: 2560px) {
+  .max-w-7xl {
+    max-width: min(2100px, 88vw) !important;
+  }
+  .max-w-\[1320px\] {
+    max-width: min(1900px, 88vw) !important;
+  }
+  .max-w-\[1440px\] {
+    max-width: min(2100px, 88vw) !important;
+  }
+  .scroll-card {
+    width: 640px !important;
+    min-width: 640px !important;
+    min-height: 620px !important;
+  }
+}
+
+/* Fluid hero heading — scales smoothly across all widths */
+.hero-heading {
+  font-size: clamp(2.5rem, 5vw, 7rem);
+}
+
+/* Fluid section headings */
+.section-heading {
+  font-size: clamp(2rem, 3.5vw, 5rem);
+}
+
+/* Larger icon boxes on big screens */
+@media (min-width: 1920px) {
+  .w-14.h-14 { width: 4rem !important; height: 4rem !important; }
+  .w-20.h-20 { width: 5.5rem !important; height: 5.5rem !important; }
 }

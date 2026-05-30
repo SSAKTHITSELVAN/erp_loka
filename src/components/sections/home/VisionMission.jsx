@@ -18,8 +18,8 @@ export default function VisionMission() {
             filter: 'brightness(1)',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-900/20 to-slate-950/30"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(17,17,17,0.3), rgba(10,10,10,0.4))' }}></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(217,178,76,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(217,178,76,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
       </div>
 
       <div className="container-custom relative z-10">
@@ -32,13 +32,13 @@ export default function VisionMission() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <span className="text-sm font-bold tracking-widest text-electric uppercase font-heading">
+          <span className="text-sm font-bold tracking-widest uppercase" style={{ color: '#D9B24C', fontFamily: 'Rajdhani, sans-serif' }}>
             WHO WE ARE
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-150 mt-3 font-heading tracking-tighter">
-            Vision &amp; <span className="gradient-text">Mission</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-3 tracking-tighter" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
+            Vision &amp; <span style={{ color: '#D9B24C' }}>Mission</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-electric to-neon-blue mx-auto mt-4 rounded-full" />
+          <div className="w-16 h-1 mx-auto mt-4 rounded-full" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F)' }} />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -48,27 +48,30 @@ export default function VisionMission() {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="relative rounded-2xl overflow-hidden border-2 border-electric/30 hover:border-electric/60 transition-all duration-400 group"
+            className="relative rounded-2xl overflow-hidden border-2 transition-all duration-400 group"
+            style={{ borderColor: 'rgba(217, 178, 76, 0.3)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.6)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.3)'; }}
           >
-            {/* Background */}
-            <div className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm" />
-            <div className="absolute top-0 right-0 w-48 h-48 bg-electric/10 rounded-full blur-3xl" />
-            <div className="absolute inset-0 bg-gradient-to-br from-electric/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            <div className="absolute inset-0 backdrop-blur-sm" style={{ background: 'rgba(17, 17, 17, 0.9)' }} />
+            <div className="absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl" style={{ background: 'rgba(217, 178, 76, 0.08)' }} />
 
-            {/* Content */}
             <div className="relative z-10 p-8 md:p-10">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-electric/20 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg border border-electric/40 flex-shrink-0">
-                  <Eye className="w-7 h-7 text-electric" />
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg border flex-shrink-0"
+                  style={{ background: 'rgba(217, 178, 76, 0.15)', borderColor: 'rgba(217, 178, 76, 0.4)' }}
+                >
+                  <Eye className="w-7 h-7" style={{ color: '#D9B24C' }} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-extrabold text-electric tracking-tight font-heading">
+                  <h2 className="text-2xl font-extrabold tracking-tight" style={{ color: '#D9B24C', fontFamily: 'Rajdhani, sans-serif' }}>
                     {companyData.vision.title}
                   </h2>
-                  <p className="text-cyan-300 text-sm mt-0.5 font-bold">{companyData.vision.subtitle}</p>
+                  <p className="text-sm mt-0.5 font-bold" style={{ color: '#E0B84F' }}>{companyData.vision.subtitle}</p>
                 </div>
               </div>
-              <p className="text-white/85 leading-relaxed text-base">
+              <p className="leading-relaxed text-base" style={{ color: '#E5E5E5' }}>
                 {companyData.vision.description}
               </p>
             </div>
@@ -79,27 +82,30 @@ export default function VisionMission() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative rounded-2xl overflow-hidden border-2 border-violet-400/30 hover:border-violet-400/60 transition-all duration-400 group"
+            className="relative rounded-2xl overflow-hidden border-2 transition-all duration-400 group"
+            style={{ borderColor: 'rgba(217, 178, 76, 0.3)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.6)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.3)'; }}
           >
-            {/* Background */}
-            <div className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-violet-400/10 rounded-full blur-3xl" />
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-400/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+            <div className="absolute inset-0 backdrop-blur-sm" style={{ background: 'rgba(17, 17, 17, 0.9)' }} />
+            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full blur-3xl" style={{ background: 'rgba(217, 178, 76, 0.08)' }} />
 
-            {/* Content */}
             <div className="relative z-10 p-8 md:p-10">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-violet-400/20 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg border border-violet-400/40 flex-shrink-0">
-                  <Target className="w-7 h-7 text-violet-400" />
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center backdrop-blur-sm shadow-lg border flex-shrink-0"
+                  style={{ background: 'rgba(217, 178, 76, 0.15)', borderColor: 'rgba(217, 178, 76, 0.4)' }}
+                >
+                  <Target className="w-7 h-7" style={{ color: '#D9B24C' }} />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-extrabold text-violet-400 tracking-tight font-heading">
+                  <h2 className="text-2xl font-extrabold tracking-tight" style={{ color: '#D9B24C', fontFamily: 'Rajdhani, sans-serif' }}>
                     {companyData.mission.title}
                   </h2>
-                  <p className="text-purple-300 text-sm mt-0.5 font-bold">{companyData.mission.subtitle}</p>
+                  <p className="text-sm mt-0.5 font-bold" style={{ color: '#E0B84F' }}>{companyData.mission.subtitle}</p>
                 </div>
               </div>
-              <p className="text-white/85 leading-relaxed text-base">
+              <p className="leading-relaxed text-base" style={{ color: '#E5E5E5' }}>
                 {companyData.mission.description}
               </p>
             </div>

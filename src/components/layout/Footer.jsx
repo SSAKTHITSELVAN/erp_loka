@@ -5,29 +5,32 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-br from-primary via-primary-dark to-secondary text-white overflow-hidden">
+    <footer className="relative text-white overflow-hidden" style={{ background: '#0A0A0A' }}>
+      {/* Top border */}
+      <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F, #D9B24C)' }}></div>
       {/* Decorative background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl" style={{ background: 'rgba(217,178,76,0.03)' }}></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl" style={{ background: 'rgba(217,178,76,0.03)' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div className="relative z-10 px-6 py-16" style={{ maxWidth: 'min(1700px, 92vw)', margin: '0 auto' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-6 group bg-white rounded-2xl py-2 pl-1 pr-4 w-fit">
+            <div className="flex items-center mb-6 group -ml-4">
               <img
                 src="/logo_final_v.png"
                 alt="ERP LOKA Logo"
-                className="h-12 w-auto object-contain transition-transform duration-300 group-hover:rotate-3"
+                className="w-auto object-contain transition-transform duration-300 group-hover:rotate-3"
+                style={{ height: 'clamp(4.5rem, 5vw, 6rem)' }}
               />
-              <div className="flex flex-col justify-center leading-none -ml-4">
-                <span className="text-lg logo-main-title text-left transition-all duration-300 group-hover:text-[#0ea5e9] group-hover:tracking-wider whitespace-nowrap">
-                  ERP LOKA
+              <div className="flex flex-col justify-center -ml-2" style={{ gap: '2px' }}>
+                <span className="logo-main-title transition-all duration-300 group-hover:tracking-wider" style={{ fontSize: 'clamp(1.1rem, 1.4vw, 1.6rem)', letterSpacing: '0.08em', display: 'block' }}>
+                  ERP <span style={{ background: 'linear-gradient(90deg, #D9B24C, #F5D76E)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>LOKA</span>
                 </span>
-                <p className="text-[10px] logo-sub-title mt-0.5 text-left transition-all duration-300 group-hover:text-[#f97316] group-hover:translate-x-1 pl-8">
-                  IT Consulting
+                <p className="logo-sub-title transition-all duration-300 group-hover:translate-x-1" style={{ fontSize: 'clamp(0.55rem, 0.65vw, 0.75rem)', letterSpacing: '0.22em', display: 'block' }}>
+                  LEARN. GROW. LEAD.
                 </p>
               </div>
             </div>
@@ -35,22 +38,22 @@ export default function Footer() {
               Delivering reliable and efficient SAP support and Application Management Services
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="LinkedIn">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="LinkedIn">
                 <FaLinkedin size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Facebook">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Facebook">
                 <FaFacebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="X (Twitter)">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="X (Twitter)">
                 <FaXTwitter size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="YouTube">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="YouTube">
                 <FaYoutube size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="WhatsApp">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="WhatsApp">
                 <FaWhatsapp size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Instagram">
+              <a href="#" className="w-10 h-10 rounded-full border-2 border-[#D9B24C]/30 flex items-center justify-center hover:bg-[#D9B24C] hover:text-[#0A0A0A] transition-all duration-300 hover:scale-110 hover:shadow-lg" title="Instagram">
                 <FaInstagram size={20} />
               </a>
             </div>

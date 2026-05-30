@@ -53,40 +53,35 @@ export default function WhyChooseUs() {
       suffix: '+',
       label: 'Happy Clients',
       icon: Users,
-      color: 'text-electric',
-      bgColor: 'from-electric/20 to-electric/5',
+      color: '#D9B24C',
     },
     {
       value: '250',
       suffix: '+',
       label: 'Man Years SAP Experience',
       icon: Award,
-      color: 'text-emerald-400',
-      bgColor: 'from-emerald-400/20 to-emerald-400/5',
+      color: '#E0B84F',
     },
     {
       value: '6',
       suffix: '+',
       label: 'Years ERP Expertise',
       icon: TrendingUp,
-      color: 'text-violet-400',
-      bgColor: 'from-violet-400/20 to-violet-400/5',
+      color: '#D9B24C',
     },
     {
       value: '24',
       suffix: '/7',
       label: 'Enterprise Support',
       icon: Clock,
-      color: 'text-amber-400',
-      bgColor: 'from-amber-400/20 to-amber-400/5',
+      color: '#E0B84F',
     },
     {
       value: '1',
       suffix: 'st',
       label: 'Certified SAP VAR Partner',
       icon: BadgeCheck,
-      color: 'text-cyan-400',
-      bgColor: 'from-cyan-400/20 to-cyan-400/5',
+      color: '#D9B24C',
     },
   ];
 
@@ -101,17 +96,16 @@ export default function WhyChooseUs() {
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: `url(${whyChooseBackground})`,
-            filter: 'brightness(0.65)',
+            filter: 'brightness(0.5)',
           }}
         />
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/50 to-slate-950/40"></div>
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.6), rgba(10,10,10,0.5))' }}></div>
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.03)_1px,transparent_1px)] bg-[size:100px_100px] z-0"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(217,178,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(217,178,76,0.03)_1px,transparent_1px)] bg-[size:100px_100px] z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+      <div className="w-full px-6 relative z-10" style={{ maxWidth: "min(1700px, 92vw)", margin: "0 auto" }}>
 
         {/* Header */}
         <motion.div
@@ -121,20 +115,20 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
-          <span className="text-sm md:text-base font-bold tracking-widest text-electric uppercase font-heading">
+          <span className="text-sm md:text-base font-bold tracking-widest uppercase" style={{ color: '#D9B24C', fontFamily: 'Rajdhani, sans-serif' }}>
             WHY CHOOSE US
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 font-heading tracking-tighter leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-4 tracking-tighter leading-tight" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
             <span className="text-white">Why Choose </span>
-            <span className="gradient-text">ERP LOKA</span>
+            <span style={{ color: '#D9B24C' }}>ERP LOKA</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-electric via-neon-blue to-neon-purple mx-auto mt-6 rounded-full" />
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mt-6 leading-relaxed">
+          <div className="w-24 h-1.5 mx-auto mt-6 rounded-full" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F)' }} />
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mt-6 leading-relaxed" style={{ color: '#CFCFCF' }}>
             Industry-Focused SAP Solutions with Proven Excellence
           </p>
         </motion.div>
 
-        {/* Animated Stats Section - HIGHLIGHTED */}
+        {/* Animated Stats Section */}
         <div className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {stats.map((stat, index) => {
@@ -150,51 +144,37 @@ export default function WhyChooseUs() {
                   <div
                     className="relative rounded-2xl overflow-hidden border-2 transition-all duration-500 hover:scale-105 h-full"
                     style={{
-                      background: 'rgba(15, 23, 42, 0.9)',
+                      background: 'rgba(17, 17, 17, 0.9)',
                       backdropFilter: 'blur(20px)',
-                      borderColor: stat.color.replace('text-', 'rgba(') + ', 0.3)',
-                      boxShadow: `0 10px 40px rgba(0, 0, 0, 0.5)`,
+                      borderColor: 'rgba(217, 178, 76, 0.2)',
+                      boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.5)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.2)'; }}
                   >
-                    {/* Gradient bar */}
-                    <div className={`h-1.5 bg-gradient-to-r ${stat.bgColor}`}></div>
+                    <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F)' }}></div>
 
-                    {/* Content */}
                     <div className="p-6 text-center">
-                      {/* Icon */}
                       <div className="mb-4 flex justify-center">
-                        <div className="relative">
-                          <div
-                            className="absolute inset-0 rounded-xl blur-xl"
-                            style={{
-                              background: stat.color.replace('text-', '') + '40',
-                            }}
-                          ></div>
-                          <div
-                            className={`relative w-14 h-14 rounded-xl flex items-center justify-center border-2 group-hover:scale-110 transition-transform duration-300`}
-                            style={{
-                              background: stat.color.replace('text-', 'rgba(') + ', 0.1)',
-                              borderColor: stat.color.replace('text-', 'rgba(') + ', 0.4)',
-                            }}
-                          >
-                            <Icon className={`w-7 h-7 ${stat.color}`} strokeWidth={2.5} />
-                          </div>
+                        <div
+                          className="w-14 h-14 rounded-xl flex items-center justify-center border-2 group-hover:scale-110 transition-transform duration-300"
+                          style={{
+                            background: 'rgba(217, 178, 76, 0.1)',
+                            borderColor: 'rgba(217, 178, 76, 0.3)',
+                          }}
+                        >
+                          <Icon className="w-7 h-7" style={{ color: stat.color }} strokeWidth={2.5} />
                         </div>
                       </div>
 
-                      {/* Animated Number */}
-                      <div className={`text-4xl md:text-5xl font-extrabold ${stat.color} mb-2 font-heading`}>
+                      <div className="text-4xl md:text-5xl font-extrabold mb-2" style={{ color: stat.color, fontFamily: 'Rajdhani, sans-serif' }}>
                         <AnimatedCounter value={stat.value} suffix={stat.suffix} duration={2500} />
                       </div>
 
-                      {/* Label */}
-                      <p className="text-slate-300 text-sm font-medium leading-tight">
+                      <p className="text-sm font-medium leading-tight" style={{ color: '#CFCFCF' }}>
                         {stat.label}
                       </p>
                     </div>
-
-                    {/* Hover glow effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${stat.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
                   </div>
                 </motion.div>
               );
@@ -202,18 +182,10 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Original Cards Grid */}
+        {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {companyData.whyChooseUs.map((item, index) => {
             const Icon = iconMap[item.icon];
-
-            // Different colors for each card title
-            const titleColors = [
-              'text-electric', // Cyan
-              'text-neon-blue', // Blue
-              'text-emerald-400', // Green
-              'text-neon-purple', // Purple
-            ];
 
             return (
               <motion.div
@@ -224,41 +196,40 @@ export default function WhyChooseUs() {
                 className="group"
               >
                 <div
-                  className="relative h-full rounded-2xl overflow-hidden border border-electric/20 hover:border-electric/50 transition-all duration-500 hover:scale-105"
+                  className="relative h-full rounded-2xl overflow-hidden border transition-all duration-500 hover:scale-105"
                   style={{
-                    background: 'rgba(15, 23, 42, 0.85)',
+                    background: 'rgba(17, 17, 17, 0.85)',
                     backdropFilter: 'blur(20px)',
                     boxShadow: '0 10px 40px rgba(0, 0, 0, 0.5)',
+                    borderColor: 'rgba(217, 178, 76, 0.2)',
                   }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.5)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(217, 178, 76, 0.2)'; }}
                 >
-                  {/* Gradient top bar */}
-                  <div className="h-1.5 bg-gradient-to-r from-electric via-neon-blue to-neon-purple"></div>
+                  <div className="h-1.5" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F)' }}></div>
 
-                  {/* Card Content */}
                   <div className="p-8 text-center">
-
-                    {/* Icon with glow effect */}
                     <div className="mb-6 flex justify-center">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-br from-electric/40 to-neon-blue/40 rounded-2xl blur-xl"></div>
-                        <div className="relative w-20 h-20 bg-gradient-to-br from-electric/20 to-neon-blue/20 rounded-2xl flex items-center justify-center border-2 border-electric/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                          <Icon className="w-10 h-10 text-electric" strokeWidth={2.5} />
-                        </div>
+                      <div
+                        className="w-20 h-20 rounded-2xl flex items-center justify-center border-2 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
+                        style={{
+                          background: 'rgba(217, 178, 76, 0.1)',
+                          borderColor: 'rgba(217, 178, 76, 0.3)',
+                        }}
+                      >
+                        <Icon className="w-10 h-10" style={{ color: '#D9B24C' }} strokeWidth={2.5} />
                       </div>
                     </div>
 
-                    {/* Title with different colors */}
-                    <h4 className={`text-xl md:text-2xl font-extrabold mb-4 font-heading tracking-tight ${titleColors[index]}`}>
+                    <h4 className="text-xl md:text-2xl font-extrabold mb-4 tracking-tight" style={{ color: '#D9B24C', fontFamily: 'Rajdhani, sans-serif' }}>
                       {item.title}
                     </h4>
 
-                    {/* Description */}
-                    <p className="text-slate-300 text-base leading-relaxed">
+                    <p className="text-base leading-relaxed" style={{ color: '#CFCFCF' }}>
                       {item.description}
                     </p>
 
-                    {/* Hover effect line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-electric via-neon-blue to-neon-purple opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(90deg, #D9B24C, #E0B84F)' }}></div>
                   </div>
                 </div>
               </motion.div>
@@ -266,17 +237,20 @@ export default function WhyChooseUs() {
           })}
         </div>
 
-        {/* Bottom badge with Shield icon */}
+        {/* Bottom badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.3, delay: 0.7 }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full border-2 border-electric/40 bg-slate-900/60 backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-            <Shield className="w-8 h-8 text-electric" strokeWidth={2.5} />
-            <p className="text-slate-200 text-base font-bold font-heading">
-              <span className="text-electric">Reliable</span> • Trusted by Leading Enterprises
+          <div
+            className="inline-flex items-center gap-4 px-8 py-4 rounded-full border-2 backdrop-blur-sm hover:scale-105 transition-transform duration-300"
+            style={{ borderColor: 'rgba(217, 178, 76, 0.4)', background: 'rgba(17, 17, 17, 0.6)' }}
+          >
+            <Shield className="w-8 h-8" style={{ color: '#D9B24C' }} strokeWidth={2.5} />
+            <p className="text-white text-base font-bold" style={{ fontFamily: 'Rajdhani, sans-serif' }}>
+              <span style={{ color: '#D9B24C' }}>Reliable</span> • Trusted by Leading Enterprises
             </p>
           </div>
         </motion.div>
