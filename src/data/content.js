@@ -228,7 +228,7 @@ export const careerData = {
 
   currentOpenings: {
     available: false,
-    message: 'We currently don\'t have any open positions, but we\'re always interested in connecting with talented professionals. Please check back soon or send us your resume at careers@erploka.com',
+    message: 'We currently don\'t have any open positions, but we\'re always interested in connecting with talented professionals. Please check back soon or send us your resume at info@erploka.com',
   },
 };
 

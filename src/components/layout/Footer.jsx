@@ -97,13 +97,13 @@ export default function Footer() {
                 <Mail size={20} className="mt-1 flex-shrink-0" />
                 <span>info@erploka.com</span>
               </a>
-              <a href="tel:+1234567890" className="flex items-start gap-3 text-white/80 hover:text-white transition-colors">
+              <a href="tel:+917204328960" className="flex items-start gap-3 text-white/80 hover:text-white transition-colors">
                 <Phone size={20} className="mt-1 flex-shrink-0" />
-                <span>+1 (234) 567-890</span>
+                <span>+91 7204 328 960</span>
               </a>
               <div className="flex items-start gap-3 text-white/80">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <span>Business Address<br />City, State, Country</span>
+                <span>28, SLCN, 11th cross<br />LBS Nagar, HAL post<br />Bangalore - 560017</span>
               </div>
             </div>
           </div>

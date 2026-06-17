@@ -52,9 +52,9 @@ COMPANY: ERP LOKA – IT Consulting for SAP Business One
 SERVICES: SAP Support & AMS, SAP Implementation (Greenfield, Brownfield, Rollouts), SAP Optimisation (Performance Tuning, Config Changes, Upgrades), SAP Consulting (BPA, Architecture, Best Practices, Change Management)
 EXPERTISE: 6+ years ERP consulting, 250+ man years SAP S/4 HANA, SAP VAR Partner, 100+ clients, 20+ team members
 ACHIEVEMENTS: India's first partner certified for SAP S/4 HANA on-premise deployment, Vendor for world's largest FMCG company, SAP qualified partner packaged solution for CPG Industry
-CONTACT: https://calendly.com/ssakthitselvan7/erp_loka | careers@erploka.com
+CONTACT: https://calendly.com/venkateshmech8960/30min | info@erploka.com
 
-RULES: Keep responses concise (2-3 sentences). If off-topic, say: "I only answer questions about ERP LOKA and our SAP services. Reach us at https://calendly.com/ssakthitselvan7/erp_loka". Never invent info.`,
+RULES: Keep responses concise (2-3 sentences). If off-topic, say: "I only answer questions about ERP LOKA and our SAP services. Reach us at https://calendly.com/venkateshmech8960/30min". Never invent info.`,
             },
             { role: 'user', content: userMessage },
           ],
@@ -64,11 +64,11 @@ RULES: Keep responses concise (2-3 sentences). If off-topic, say: "I only answer
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error?.message || 'API error');
-      setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Please contact us at https://calendly.com/ssakthitselvan7/erp_loka' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Please contact us at https://calendly.com/venkateshmech8960/30min' }]);
     } catch (err) {
       const msg = err?.message?.includes('401') || err?.message?.includes('Unauthorized')
-        ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/ssakthitselvan7/erp_loka'
-        : 'Something went wrong. Please try again or visit https://calendly.com/ssakthitselvan7/erp_loka';
+        ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/venkateshmech8960/30min'
+        : 'Something went wrong. Please try again or visit https://calendly.com/venkateshmech8960/30min';
       setMessages(prev => [...prev, { role: 'assistant', content: msg }]);
     } finally {
       setIsLoading(false);
@@ -241,11 +241,11 @@ RULES: Keep responses concise (2-3 sentences). If off-topic, say: "I only answer
                           });
                           const data = await res.json();
                           if (!res.ok) throw new Error(data?.error?.message || 'API error');
-                          setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Contact us at https://calendly.com/ssakthitselvan7/erp_loka' }]);
+                          setMessages(prev => [...prev, { role: 'assistant', content: data?.choices?.[0]?.message?.content || 'Contact us at https://calendly.com/venkateshmech8960/30min' }]);
                         } catch (err) {
                           const msg = err?.message?.includes('401') || err?.message?.includes('Unauthorized')
-                            ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/ssakthitselvan7/erp_loka'
-                            : 'Something went wrong. Please try again or visit https://calendly.com/ssakthitselvan7/erp_loka';
+                            ? 'API key is missing or invalid. Please contact us directly at https://calendly.com/venkateshmech8960/30min'
+                            : 'Something went wrong. Please try again or visit https://calendly.com/venkateshmech8960/30min';
                           setMessages(prev => [...prev, { role: 'assistant', content: msg }]);
                         } finally {
                           setIsLoading(false);

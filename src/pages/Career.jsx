@@ -57,7 +57,7 @@ export default function Career() {
             </p>
 
             <motion.a
-              href="mailto:careers@erploka.com"
+              href="mailto:info@erploka.com"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
@@ -222,7 +222,7 @@ export default function Career() {
 
                 <div className="flex flex-col sm:flex-row gap-5 justify-center">
                   <motion.a
-                    href="mailto:careers@erploka.com"
+                    href="mailto:info@erploka.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                     className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-electric to-neon-blue text-white font-bold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-lg"

@@ -9,7 +9,7 @@ export default function BookDemoChoice({ isOpen, onClose }) {
 
   const handleCalendlyClick = () => {
     // Open Calendly in new tab
-    window.open('https://calendly.com/ssakthitselvan7/erp_loka', '_blank');
+    window.open('https://calendly.com/venkateshmech8960/30min', '_blank');
     onClose(); // Close the choice modal
   };
 
